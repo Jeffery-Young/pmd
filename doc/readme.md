@@ -3,11 +3,13 @@
 
 ## 参与开发
 
-源码托管：[http://gitlab.baidu.com/psfe/ps-material-design](http://gitlab.baidu.com/psfe/ps-material-design)
+源码托管：[https://github.com/Jeffery-Young/pmd](https://github.com/Jeffery-Young/pmd)
     
-开发环境与wise结果页相同，依赖fis3。
+环境依赖：
 
-环境部署方式移步[linux开发环境部署](http://sfe.baidu.com/#/工具服务/linux开发环境部署)查看。
+* npm install -g [fis3](http://fis.baidu.com/fis3/index.html)   // fis3需要全局安装
+* npm install fis3-hook-amd
+* npm install fis3-parser-stylus
 
 
 ## 开发规范
@@ -36,7 +38,6 @@ src
 组件文件中必须包含demo.html及readme.md，分别对应组件示例及组件使用文档。
 
 组件js源文件采用amd方式开发。
-
 
 ### 新增组件
 
@@ -69,25 +70,15 @@ make dev
 ```
 开启fis watch功能，直接本地修改即时预览。
 
-### CodeReview
-
-``` shell
-python upload.py
-```
-可以使用公司统一upload.py脚本在cooder平台发起CodeReview。
-
-注意：upload.py只能在git add后，git commit前发起。
-
-upload使用方法请使用"python upload.py --h"查看。
 
 ### 发布打包
 
 ``` shell
 make
 ```
-执行fis编译产生build/output两个目录，分别用于平台展示及产出打包。
+执行fis编译产生build、output两个目录，分别用于平台展示及产出打包。
 
-目前产出的打包文件只在结果页使用，打包产出物均为源代码，可根据实际使用环境执行编译。
+打包产出物均为源代码，可根据实际使用环境执行编译。
 
 ``` shell
 git push
