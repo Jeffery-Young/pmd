@@ -1,0 +1,77 @@
+/* 父容器 mask */
+#c-dialog {
+    position: relative;
+    z-index: 1000;
+}
+
+/* mask层 */
+.c-dialog-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* 对话框layout */
+.c-dialog-layout {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    margin-left: -40%;
+    background: #e8e8e8;
+    border-radius: 6px;
+}
+
+.c-dialog-layout .c-dialog-content {
+    padding: 15px 15px 12px;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.c-dialog-layout .c-dialog-title {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.c-dialog-layout .c-dialog-text {
+    margin-top: 4px;
+}
+
+.c-dialog-layout div.c-dialog-buttons {
+    color: #09f;
+    text-align: center;
+    line-height: 40px;
+    border-top: 1px solid #d9d9d9;
+}
+
+/* 按钮水平布局 */
+.c-dialog-layout div.c-flexbox span.c-dialog-button {
+    display: block;
+    min-width: 35px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    border-left: 1px solid #d9d9d9;
+}
+
+.c-dialog-layout div.c-flexbox  span.c-dialog-button:first-child {
+    border-left: 0 none;
+}
+
+/* 按钮垂直布局 */
+.c-dialog-layout div.c-dialog-vertical-buttons span.c-dialog-button {
+    display: block;
+    border-top: 1px solid #d9d9d9;
+}
+
+.c-dialog-layout div.c-dialog-vertical-buttons span.c-dialog-button:first-child {
+    border-top: 0 none;
+}
+
+/* 解决事件代理响应区域变为父元素的bug */
+.c-dialog-layout div.c-dialog-buttons:focus {
+    outline: none;
+}

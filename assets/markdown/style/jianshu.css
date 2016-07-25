@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/* markdown for jianshu */
+.markdown-body,.preview-mode .preview,.kalamu-area,.kalamu-area:focus,.history-view .view-area,.collection-top .description {
+    color: #2f2f2f;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.7
+}
+
+.markdown-body p,.preview-mode .preview p,.kalamu-area p,.kalamu-area:focus p,.history-view .view-area p,.collection-top .description p {
+    margin: 0 0 25px 0
+}
+
+.markdown-body blockquote p:last-child,.preview-mode .preview blockquote p:last-child,.kalamu-area blockquote p:last-child,.kalamu-area:focus blockquote p:last-child,.history-view .view-area blockquote p:last-child,.collection-top .description blockquote p:last-child {
+    margin: 0
+}
+
+.markdown-body .video-package .video-description p,.preview-mode .preview .video-package .video-description p,.kalamu-area .video-package .video-description p,.kalamu-area:focus .video-package .video-description p,.history-view .view-area .video-package .video-description p,.collection-top .description .video-package .video-description p {
+    margin: 0
+}
+
+.markdown-body li p,.preview-mode .preview li p,.kalamu-area li p,.kalamu-area:focus li p,.history-view .view-area li p,.collection-top .description li p {
+    overflow: visible
+}
+
+.markdown-body a,.preview-mode .preview a,.kalamu-area a,.kalamu-area:focus a,.history-view .view-area a,.collection-top .description a {
+    color: #4094c7
+}
+
+.markdown-body a:hover,.preview-mode .preview a:hover,.kalamu-area a:hover,.kalamu-area:focus a:hover,.history-view .view-area a:hover,.collection-top .description a:hover {
+    color: #075b8d
+}
+
+.markdown-body a.active,.markdown-body a:active,.markdown-body a:focus,.preview-mode .preview a.active,.preview-mode .preview a:active,.preview-mode .preview a:focus,.kalamu-area a.active,.kalamu-area a:active,.kalamu-area a:focus,.kalamu-area:focus a.active,.kalamu-area:focus a:active,.kalamu-area:focus a:focus,.history-view .view-area a.active,.history-view .view-area a:active,.history-view .view-area a:focus,.collection-top .description a.active,.collection-top .description a:active,.collection-top .description a:focus {
+    color: #075b8d
+}
+
+.markdown-body a.disabled,.markdown-body a.disabled:hover,.markdown-body a.disabled:focus,.markdown-body a.disabled:active,.markdown-body a.disabled.active,.markdown-body a[disabled],.markdown-body a[disabled]:hover,.markdown-body a[disabled]:focus,.markdown-body a[disabled]:active,.markdown-body a[disabled].active,.preview-mode .preview a.disabled,.preview-mode .preview a.disabled:hover,.preview-mode .preview a.disabled:focus,.preview-mode .preview a.disabled:active,.preview-mode .preview a.disabled.active,.preview-mode .preview a[disabled],.preview-mode .preview a[disabled]:hover,.preview-mode .preview a[disabled]:focus,.preview-mode .preview a[disabled]:active,.preview-mode .preview a[disabled].active,.kalamu-area a.disabled,.kalamu-area a.disabled:hover,.kalamu-area a.disabled:focus,.kalamu-area a.disabled:active,.kalamu-area a.disabled.active,.kalamu-area a[disabled],.kalamu-area a[disabled]:hover,.kalamu-area a[disabled]:focus,.kalamu-area a[disabled]:active,.kalamu-area a[disabled].active,.kalamu-area:focus a.disabled,.kalamu-area:focus a.disabled:hover,.kalamu-area:focus a.disabled:focus,.kalamu-area:focus a.disabled:active,.kalamu-area:focus a.disabled.active,.kalamu-area:focus a[disabled],.kalamu-area:focus a[disabled]:hover,.kalamu-area:focus a[disabled]:focus,.kalamu-area:focus a[disabled]:active,.kalamu-area:focus a[disabled].active,.history-view .view-area a.disabled,.history-view .view-area a.disabled:hover,.history-view .view-area a.disabled:focus,.history-view .view-area a.disabled:active,.history-view .view-area a.disabled.active,.history-view .view-area a[disabled],.history-view .view-area a[disabled]:hover,.history-view .view-area a[disabled]:focus,.history-view .view-area a[disabled]:active,.history-view .view-area a[disabled].active,.collection-top .description a.disabled,.collection-top .description a.disabled:hover,.collection-top .description a.disabled:focus,.collection-top .description a.disabled:active,.collection-top .description a.disabled.active,.collection-top .description a[disabled],.collection-top .description a[disabled]:hover,.collection-top .description a[disabled]:focus,.collection-top .description a[disabled]:active,.collection-top .description a[disabled].active {
+    cursor: not-allowed;
+    color: #999999
+}
+
+.markdown-body p,.markdown-body ul,.markdown-body ol,.preview-mode .preview p,.preview-mode .preview ul,.preview-mode .preview ol,.kalamu-area p,.kalamu-area ul,.kalamu-area ol,.kalamu-area:focus p,.kalamu-area:focus ul,.kalamu-area:focus ol,.history-view .view-area p,.history-view .view-area ul,.history-view .view-area ol,.collection-top .description p,.collection-top .description ul,.collection-top .description ol {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    word-break: initial;
+    word-break: break-word
+}
+
+.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6,.preview-mode .preview h1,.preview-mode .preview h2,.preview-mode .preview h3,.preview-mode .preview h4,.preview-mode .preview h5,.preview-mode .preview h6,.kalamu-area h1,.kalamu-area h2,.kalamu-area h3,.kalamu-area h4,.kalamu-area h5,.kalamu-area h6,.kalamu-area:focus h1,.kalamu-area:focus h2,.kalamu-area:focus h3,.kalamu-area:focus h4,.kalamu-area:focus h5,.kalamu-area:focus h6,.history-view .view-area h1,.history-view .view-area h2,.history-view .view-area h3,.history-view .view-area h4,.history-view .view-area h5,.history-view .view-area h6,.collection-top .description h1,.collection-top .description h2,.collection-top .description h3,.collection-top .description h4,.collection-top .description h5,.collection-top .description h6 {
+    margin: 0;
+    color: inherit;
+    line-height: 1.8;
+    text-rendering: optimizelegibility
+}
+
+.markdown-body h1,.preview-mode .preview h1,.kalamu-area h1,.kalamu-area:focus h1,.history-view .view-area h1,.collection-top .description h1 {
+    font-size: 26px
+}
+
+.markdown-body h2,.preview-mode .preview h2,.kalamu-area h2,.kalamu-area:focus h2,.history-view .view-area h2,.collection-top .description h2 {
+    font-size: 24px
+}
+
+.markdown-body h3,.preview-mode .preview h3,.kalamu-area h3,.kalamu-area:focus h3,.history-view .view-area h3,.collection-top .description h3 {
+    font-size: 22px
+}
+
+.markdown-body h4,.preview-mode .preview h4,.kalamu-area h4,.kalamu-area:focus h4,.history-view .view-area h4,.collection-top .description h4 {
+    font-size: 20px
+}
+
+.markdown-body h5,.preview-mode .preview h5,.kalamu-area h5,.kalamu-area:focus h5,.history-view .view-area h5,.collection-top .description h5 {
+    font-size: 18px
+}
+
+.markdown-body h6,.preview-mode .preview h6,.kalamu-area h6,.kalamu-area:focus h6,.history-view .view-area h6,.collection-top .description h6 {
+    font-size: 16px
+}
+
+.markdown-body hr,.preview-mode .preview hr,.kalamu-area hr,.kalamu-area:focus hr,.history-view .view-area hr,.collection-top .description hr {
+    margin: 0 0 20px;
+    border-top: 1px solid #d9d9d9
+}
+
+.markdown-body blockquote,.preview-mode .preview blockquote,.kalamu-area blockquote,.kalamu-area:focus blockquote,.history-view .view-area blockquote,.collection-top .description blockquote {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    border-left: 4px solid #999999;
+    word-break: break-word;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 30px
+}
+
+.markdown-body blockquote p,.preview-mode .preview blockquote p,.kalamu-area blockquote p,.kalamu-area:focus blockquote p,.history-view .view-area blockquote p,.collection-top .description blockquote p {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.7
+}
+
+.markdown-body ol,.markdown-body ul,.preview-mode .preview ol,.preview-mode .preview ul,.kalamu-area ol,.kalamu-area ul,.kalamu-area:focus ol,.kalamu-area:focus ul,.history-view .view-area ol,.history-view .view-area ul,.collection-top .description ol,.collection-top .description ul {
+    margin-bottom: 20px
+}
+
+.markdown-body ol li,.markdown-body ul li,.preview-mode .preview ol li,.preview-mode .preview ul li,.kalamu-area ol li,.kalamu-area ul li,.kalamu-area:focus ol li,.kalamu-area:focus ul li,.history-view .view-area ol li,.history-view .view-area ul li,.collection-top .description ol li,.collection-top .description ul li {
+    line-height: 30px
+}
+
+.markdown-body ol li ol,.markdown-body ol li ul,.markdown-body ul li ol,.markdown-body ul li ul,.preview-mode .preview ol li ol,.preview-mode .preview ol li ul,.preview-mode .preview ul li ol,.preview-mode .preview ul li ul,.kalamu-area ol li ol,.kalamu-area ol li ul,.kalamu-area ul li ol,.kalamu-area ul li ul,.kalamu-area:focus ol li ol,.kalamu-area:focus ol li ul,.kalamu-area:focus ul li ol,.kalamu-area:focus ul li ul,.history-view .view-area ol li ol,.history-view .view-area ol li ul,.history-view .view-area ul li ol,.history-view .view-area ul li ul,.collection-top .description ol li ol,.collection-top .description ol li ul,.collection-top .description ul li ol,.collection-top .description ul li ul {
+    margin-top: 15px
+}
+
+.markdown-body pre,.preview-mode .preview pre,.kalamu-area pre,.kalamu-area:focus pre,.history-view .view-area pre,.collection-top .description pre {
+    word-wrap: normal;
+    word-break: break-all;
+    white-space: pre;
+    overflow: auto;
+    margin-bottom: 20px
+}
+
+.markdown-body pre code,.preview-mode .preview pre code,.kalamu-area pre code,.kalamu-area:focus pre code,.history-view .view-area pre code,.collection-top .description pre code {
+    padding: 0;
+    background-color: transparent;
+    white-space: pre
+}
+
+.markdown-body code,.preview-mode .preview code,.kalamu-area code,.kalamu-area:focus code,.history-view .view-area code,.collection-top .description code {
+    padding: 2px 4px;
+    background-color: #fdf6e3;
+    border: none;
+    color: #657b83;
+    font-size: 12px;
+    white-space: pre-wrap
+}
+
+.markdown-body table,.preview-mode .preview table,.kalamu-area table,.kalamu-area:focus table,.history-view .view-area table,.collection-top .description table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    border-left: none
+}
+
+.markdown-body table thead th,.preview-mode .preview table thead th,.kalamu-area table thead th,.kalamu-area:focus table thead th,.history-view .view-area table thead th,.collection-top .description table thead th {
+    vertical-align: bottom
+}
+
+.markdown-body table th,.markdown-body table td,.preview-mode .preview table th,.preview-mode .preview table td,.kalamu-area table th,.kalamu-area table td,.kalamu-area:focus table th,.kalamu-area:focus table td,.history-view .view-area table th,.history-view .view-area table td,.collection-top .description table th,.collection-top .description table td {
+    padding: 8px;
+    border-left: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    line-height: 20px;
+    vertical-align: top
+}
+
+.markdown-body table th,.preview-mode .preview table th,.kalamu-area table th,.kalamu-area:focus table th,.history-view .view-area table th,.collection-top .description table th {
+    font-weight: bold
+}

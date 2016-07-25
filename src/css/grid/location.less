@@ -1,0 +1,152 @@
+/*
+ * 定位组件样式
+ * @author xieyaowu
+ */
+
+.c-location-wrap {
+    overflow: hidden;
+    padding: 0 15px;
+    background-color: #f7f7f7;
+}
+.c-location-header-tips {
+    font-size: 13px;
+}
+.c-location-header-btn {
+    padding-top: 8px;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+}
+.c-location-header-btn div {
+    display: inline-block;
+}
+.c-location-header-btn-reload:after {
+    content: "";
+    display: inline-block;
+    overflow: hidden;
+    width: 1px;
+    height: 10px;
+    margin: 0 8px;
+    background-color: #ccc;
+}
+.c-location-header-btn-788 {
+    display: none;
+}
+.c-location-header-btn-in,
+.c-location-header-btn-reload {
+    color: #333;
+}
+.c-location-header-btn .c-icon {
+    color: #666;
+    vertical-align: top; 
+}
+.c-location-header-tips {
+    color: #999;
+}
+/*上面是全局加载的*/
+.c-location-header-tips-err {
+    color: #c00;
+}
+.c-location-header-tips-success {
+    color: #38f;
+}
+.c-location-header-btn-reload-ing .c-location-header-btn-787 {
+    display: none;
+}
+.c-location-header-btn-reload-ing .c-location-header-btn-788 {
+    display: inline-block;
+    color: #999;
+    -webkit-animation-name:c_location_rotate;
+    -webkit-animation-duration:1.5s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+}
+.c-location-header-btn-reload-ing {
+    color: #999;
+}
+@-webkit-keyframes c_location_rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes c_location_rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.c-location-header-btn-in-active,
+.c-location-header-btn-in-active .c-icon {
+    color: #38f;
+}
+.c-location-form {
+    position: relative;
+}
+.c-location-form .c-input {
+    padding-right: 70px;
+}
+.c-location-input-close {
+    position: absolute;
+    z-index: 10;
+    top: 1px;
+    right: 37px;
+    display: none;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #ddd;
+    font-size: 16px; 
+}
+.c-location-form .c-input:focus {
+    border-color: #ddd #eee #eee #ddd;
+    background-color: #fff;
+}
+.c-location-sub {
+    position: absolute;
+    z-index: 10;
+    top: 1px;
+    right: 1px;
+    width: 36px;
+    height: 36px;
+    border-left: 1px solid  #eee;
+    line-height: 36px;
+    text-align: center;
+    background-color: #fafafa;
+}
+.c-location-body {
+    display: none;
+    padding-bottom: 14px;
+}
+.c-location-down {
+    display: none;
+    border: 1px solid  #eee;
+    border-top: none;
+    background-color: #fff;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.c-location-down-tips {
+    height: 38px;
+    padding-left: 12px;
+    line-height: 38px;
+    background-color: #fafafa;
+}
+.c-location-down-tips-close {
+    padding-right: 12px;
+}
+.c-location-down-tips-close:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    margin-right: 8px;
+    background-color: #ddd;
+}
+.c-location-down li {
+    padding: 4px 12px;
+    border-top: 1px solid #f1f1f1;
+}

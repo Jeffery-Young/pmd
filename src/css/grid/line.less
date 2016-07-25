@@ -1,0 +1,66 @@
+/*
+ * 按行截断 & 行分割线样式
+ * 1~5行截断，其中单行截断采用强制不换行方式实现
+ * @ BUG
+ * 多行截断box-orient:vertical;当超行截断时，末行line-height与box-height距离缺失
+ * 目前给所有多行截断样式增加margin-bottom值补足行距，但会导致文字不足未发生截断时过多补足(目前无解)
+ * @author yangfan
+ */
+
+
+// 按行截断样式
+.make-line-clamp(5);
+
+.common-line-clamp(@sum) {
+    .line-clamp(@index) {                              // initial
+        @item: ~".c-line-clamp@{index}";
+        .line-clamp((@index + 1), @item);
+    }
+    .line-clamp(@index, @list) when (@index =< @sum) { // general
+        @item: ~".c-line-clamp@{index}";
+        .line-clamp((@index + 1), ~"@{list}, @{item}");
+    }
+    .line-clamp(@index, @list) when (@index > @sum) {  // terminal
+        @{list} {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: @space-size-small;   // 消除文字末行line-height与box-height距离缺失问题
+        }
+    }
+    .line-clamp(2);
+}
+
+.calc-line-clamp(@sum, @index: 2) when (@index =< @sum) {
+    .c-line-clamp@{index} {
+        -webkit-line-clamp: @index;
+    }
+    .calc-line-clamp(@sum, (@index + 1));
+}
+
+.make-line-clamp(@sum) {
+    .common-line-clamp(@sum);
+    .calc-line-clamp(@sum);
+    // 单行截断采用单行强制不换行方式
+    .c-line-clamp1 {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+// 上下分割线
+.c-line-top {
+    border-top: 1px solid #f1f1f1;
+}
+.c-line-dotted-top {
+    border-top: 1px dotted #f1f1f1;
+}
+.c-line-bottom {
+    border-bottom: 1px solid #f1f1f1;
+}
+.c-line-dotted-bottom {
+    border-bottom: 1px dotted #f1f1f1;
+}

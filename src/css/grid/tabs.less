@@ -1,0 +1,143 @@
+/*
+ * tabs组件样式
+ * @author yangfan
+ */
+
+// tabs组件高度
+@tabs-height : 44px;
+
+.c-tabs {
+    position: relative;
+}
+// tabs导航
+.c-tabs-nav {
+    min-width: 100%;
+    height: @tabs-height;
+    font-size: 14px;
+    white-space: nowrap;
+    background-color: #f6f6f6;
+    // 旧版伸缩盒模型
+    display: -webkit-box;
+    -webkit-box-orient: horizontal; // 子元素左右排列
+    -webkit-box-direction: normal;  // 子元素顺序排列
+    -webkit-box-pack: justify;      // 子元素左右方向两端对齐
+    -webkit-box-align: stretch;     // 子元素垂直方向顶部对齐
+    -webkit-box-lines: single;      // multiple属性不被支持!!!!!WTF!!!!!
+    // 新版伸缩盒模型
+    display: -webkit-flex;
+    -webkit-flex-direction: row;            // 子元素左右顺序排列
+    -webkit-justify-content: space-between; // 子元素左右方向两端对齐
+    -webkit-align-items: stretch;           // 子元素垂直方向顶部对齐
+    -webkit-align-content: flex-start;      // 子元素垂直方向顶部对齐(多行情况)
+    -webkit-flex-wrap: nowrap;              // 子元素溢出时不换行
+    * {
+        -webkit-box-sizing: border-box;     // for android 2~3
+        box-sizing: border-box;
+    }
+}
+.c-tabs-nav-li {
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    width: percentage(1/6);
+    list-style: none;
+    text-decoration: none;
+    padding: 0 15px;
+    height: @tabs-height;
+    line-height: @tabs-height;
+    color: #333;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.c-tabs-nav .c-tabs-nav-selected {
+    color: #38f;
+    border-bottom: 2px solid #38f;
+}
+// 底部tabs样式
+.c-tabs-nav-bottom {
+    border-top: 1px solid #eee;
+    .c-tabs-nav-li {
+        color: #999;
+    }
+    .c-tabs-nav-icon {
+        display: none;
+    }
+    .c-tabs-nav-selected {
+        position: relative;
+        top: -1px;
+        height: @tabs-height;
+        line-height: @tabs-height + 1;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #f1f1f1;
+        border-color: #fff #f1f1f1 #38f #f1f1f1;
+        &:first-child {
+            margin-left: -1px; 
+        }
+        .c-tabs-nav-icon {
+            display: inline-block;
+        }
+    }
+}
+// 滑动状态样式，覆盖标准等比划分样式
+.c-tabs-nav-view {
+    position: relative;
+    height: @tabs-height;
+    background-color: #f6f6f6;
+    overflow: hidden;
+    .c-tabs-nav {
+        display: block;
+        .c-tabs-nav-li {
+            display: inline-block;
+            width: auto;
+        }
+    }
+}
+// 切换更多状态样式
+.c-tabs-nav-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    display: block;
+    text-align: center;
+    width: @tabs-height;
+    height: @tabs-height;
+    border-left: 1px solid #eee;
+    background-color: #f6f6f6;
+    &::before {
+        display: inline-block;
+        font-family: "cicons";
+        content: "\e73c";
+        font-size: 12px;
+        color: #333;
+        line-height: @tabs-height - 2;
+    }
+}
+.c-tabs-nav-layer {
+    position: absolute;
+    top: 0;
+    z-index: 8;
+    width: 100%;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #eee;
+    p {
+        color: #999;
+        height: @tabs-height + 1;
+        line-height: @tabs-height + 1;
+        padding: 0 15px;
+        border-bottom: 1px solid #eee;
+    }
+}
+.c-tabs-nav-layer-ul {
+    .c-tabs-nav-li {
+        display: inline-block;
+        width: percentage(1/6);
+        padding: 0;
+    }
+    .c-tabs-nav-selected {
+        color: #38f;
+    }
+}

@@ -1,0 +1,201 @@
+/*
+ * 表单元素组件样式
+ * 按钮、输入框、下拉框
+ * @author yangfan
+ */
+
+
+// 按钮
+// 普通按钮
+.c-btn {
+    display: inline-block;
+    padding: 0 9px;
+    width: 100%;
+    height: 38px;
+    line-height: 37px;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-bottom-color: #bababa;
+    border-radius: 2px;
+    vertical-align: middle;
+    overflow: hidden;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    &:visited {
+        color: #333;
+    }
+    &:active {
+        border-color: #2b99ff;
+    }
+    .c-icon {
+        position: relative;
+        top: -1px;
+        vertical-align: middle;
+        font-size: 10px;
+        margin: 0 6px;
+    }
+}
+// 加强按钮
+.c-btn-primary {
+    background-color: #f8f8f8;
+    // background: -webkit-linear-gradient(top, #f9f9f9, #f3f3f3);
+    // background: linear-gradient(top, #f9f9f9, #f3f3f3);
+    border-color: #d0d0d0;
+    border-bottom-color: #b2b2b2;
+    -webkit-box-shadow: 0 1px 1px 0 #e1e1e1;    // for android 2~3
+    box-shadow: 0 1px 1px 0 #e1e1e1;
+    .c-icon {
+        color: #02aaf8;
+    }
+}
+// 不可点击
+.c-btn-disable {
+    color: #aaa;
+    background-color: #f9f9f9;
+    border-color: #eee;
+    &:visited {
+        color: #aaa;
+    }
+    &:active {
+        border-color: #eee;
+    }
+    .c-icon {
+        color: #c8c8c8;
+    }
+}
+
+
+// 输入框
+.c-input {
+    // -webkit-box-sizing: border-box;
+    // box-sizing: border-box;
+    word-break: normal;
+    word-wrap: normal;
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    padding: 0 12px;
+    width: 100%;
+    height: 38px;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-color: #ddd #eee #eee #ddd;
+    border-radius: 0;
+    overflow: hidden;
+    outline: none;
+    &::-webkit-input-placeholder {
+        color: #999;
+    }
+    &:focus {
+        border-color: #2b99ff;
+    }
+    &:disabled {
+        color: #999;
+        background-color: #f9f9f9;
+        border-color: #e7e7e7;
+    }
+}
+
+
+// 下拉框
+.c-dropdown {
+    position: relative;
+    background-color: #fff;
+    &::before {
+        font-family: "cicons";
+        content: "\e73c";
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        right: 12px;
+        color: #333;
+        font-size: 12px;
+        width: 12px;
+        height: 38px;
+        line-height: 38px;
+    }
+    &>label {
+        display: block;
+        color: #999;
+        background-color: #fff;
+        width: 100%;
+        height: 26px;
+    }
+    &>select {
+        word-break: normal;
+        word-wrap: normal;
+        position: relative;
+        // -webkit-box-sizing: border-box;
+        // box-sizing: border-box;
+        -webkit-appearance: none;
+        appearance: none;
+        display: inline-block;
+        padding: 0 28px 0 8px;
+        width: 100%;
+        height: 38px;
+        vertical-align: middle;
+        line-height: normal;
+        font-size: 14px;
+        color: #333;
+        background-color: transparent;
+        border: 1px solid #eee;
+        border-color: #ddd #eee #eee #ddd;
+        border-radius: 0;
+        overflow: hidden;
+        outline: none;
+    }
+}
+.c-dropdown-disable {
+    background-color: #f9f9f9;
+    &>label {
+        color: #999;
+    }
+    &>select {
+        color: #999;
+        border-color: #e7e7e7;
+    }
+}
+
+
+// 单选&多选——ue暂未给出注释掉
+// .c-radio,
+// .c-checkbox {
+//     display: none;
+// }
+// .c-label {
+//     -webkit-box-sizing: border-box;
+//     box-sizing: border-box;
+//     -webkit-appearance: none;
+//     appearance: none;
+//     display: inline-block;
+//     padding: 0 9px;
+//     text-align: center;
+//     width: 100%;
+//     height: 38px;
+//     line-height: 38px;
+//     color: #1d2f9a;
+//     background-color: #f8f8f8;
+//     border: 1px solid #ddd;
+//     border-radius: 0;
+//     vertical-align: middle;
+//     overflow: hidden;
+//     outline: none;
+// }
+// .c-radio:checked + .c-label,
+// .c-checkbox:checked + .c-label {
+//     border-color: #5563b6;
+// }
+// .c-radio:checked + .c-label::after,
+// .c-checkbox:checked + .c-label::after {
+//     content: "*";
+//     display: inline;
+// }

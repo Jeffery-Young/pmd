@@ -1,0 +1,71 @@
+/*
+ * 卡片基础样式
+ * @author yangfan
+ */
+
+
+// 用于消除result样式
+.c-result {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: 0 none;
+}
+// 区块链接
+.c-blocka {
+    display: block;
+    //-webkit-tap-highlight-color:rgba(255,0,0,50);
+}
+// 大标题
+.c-title {
+    font: @font-title;
+}
+// 大于375px屏幕title只显示一行
+@media (min-width: 376px) {
+    .c-title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        min-height: 26px;
+        //white-space: nowrap;
+    }
+}
+// 摘要
+.c-abstract {
+    color: @color-text;
+}
+// 绿色showurl
+.c-showurl {
+    color: @color-text-url;
+    font: @font-normal;
+}
+// 辅助信息
+.c-gray {
+    color: @color-text-gray;
+    font: @font-small;
+}
+// 底部更多信息
+.c-moreinfo {
+    color: @color-text-graya;
+    text-align: right;
+}
+.c-foot-icon {
+    display: inline-block;
+    position:relative;
+    top: 2px;
+    background: url(//m.baidu.com/static/search/sprite.png) no-repeat;
+    -webkit-background-size: 190px 142px;
+    background-size: 190px 142px;
+}
+.c-foot-icon-16 {
+    width: 16px;
+    height: 13px;
+}
+.c-foot-icon-16-aladdin {
+    background-position: 0 -98px;
+}
+.c-foot-icon-16-lightapp {
+    background-position: -20px -98px;
+}

@@ -1,0 +1,73 @@
+<div class="c-container">
+    <div class="c-row">
+        <div class="c-span3">3n</div>
+        <div class="c-span9">9n</div>
+    </div>
+    <div class="c-row">
+        <div class="c-span3">3n</div>
+        <div class="c-span3">3n</div>
+        <div class="c-span3">3n</div>
+        <div class="c-span3">3n</div>
+    </div>
+    <div class="c-row">
+        <div class="c-span6">6n</div>
+        <div class="c-span6">6n</div>
+    </div>
+</div>
+
+<p>在栅格系统中使用边线</p>
+<div class="c-container">
+    <div class="c-line-top">
+        <div class="c-row">
+            <div class="c-span3">3n</div>
+            <div class="c-span9">9n</div>
+        </div>
+        <div class="c-row">
+            <div class="c-span12">12n-边线贯穿顶部并与栅格对齐</div>
+        </div>
+    </div>
+
+    <div class="c-row">
+        <div class="c-span6">
+            <p class="c-line-bottom">6n-下有边线</p>
+        </div>
+        <div class="c-span6">
+            <p class="c-line-bottom">6n-下有边线</p>
+        </div>
+    </div>
+</div>
+
+<p>特殊的间隔缩紧的栅格样式</p>
+<div class="c-container">
+    <p>普通栅格</p>
+    <div class="c-row c-gap-top-small">
+        <div class="c-span4"><p style="background:#ccc">4n</p></div>
+        <div class="c-span4"><p style="background:#ccc">4n</p></div>
+        <div class="c-span4"><p style="background:#ccc">4n</p></div>
+    </div>
+    <p>1px间距的特殊栅格</p>
+    <div class="c-row c-row-tight c-gap-top-small">
+        <div class="c-span4"><p style="background:#ccc">4n</p></div>
+        <div class="c-span4"><p style="background:#ccc">4n</p></div>
+        <div class="c-span4"><p style="background:#ccc">4n</p></div>
+    </div>
+    <div class="c-row c-row-tight c-gap-top-small">
+        <div class="c-span6"><p style="background:#ccc">6n</p></div>
+        <div class="c-span6"><p style="background:#ccc">6n</p></div>
+    </div>
+    <div class="c-row c-row-tight c-gap-top-small">
+        <div class="c-span3"><p style="background:#ccc">3n</p></div>
+        <div class="c-span3"><p style="background:#ccc">3n</p></div>
+        <div class="c-span3"><p style="background:#ccc">3n</p></div>
+        <div class="c-span3"><p style="background:#ccc">3n</p></div>
+    </div>
+</div>
+
+<p>自定义浮动盒模型</p>
+<div class="c-container">
+    <div class="c-flexbox" style="text-align:center;">
+        <div style="width:40%; -webkit-box-flex:1; -webkit-flex:1 1 auto; background:#ccc;">左-可变宽度</div>
+        <div style="-webkit-box-flex:0; -webkit-flex:none; background:red;">中-内容宽度</div>
+        <div style="width:40%; -webkit-box-flex:1; -webkit-flex:1 1 auto; background:#ccc;">右-可变宽度</div>
+    </div>
+</div>

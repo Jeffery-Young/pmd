@@ -1,0 +1,174 @@
+<style type="text/css">
+    /*3n图片：21.3636363636%*/
+    .wa-image-scroller{white-space:nowrap; width:177.35849%;}
+    .wa-image-entity{display:inline-block; width:12.5%;}
+</style>
+
+<p>使用iscroll</p>
+<div class="c-container">
+    <div class="c-row-tile c-scroll-wrapper wa-image-scroll-wrapper-iscroll">
+        <div class="c-scroll-parent-gap wa-image-scroller">
+            <div class="c-scroll-element-gap wa-image-entity">
+                <a href="http://www.baidu.com" target="_blank">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题1</p>
+                </a>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题2</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题3</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题4</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题5</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题6</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题7</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img src="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题8</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['pmd/scroll/iscroll'], function (IScroll) {
+        var imageScroll = new IScroll('.wa-image-scroll-wrapper-iscroll', {
+            disableMouse: false,
+            scrollX: true,
+            scrollY: false,
+            eventPassthrough : true,
+            scrollbars: false
+        });
+    });
+</script>
+
+
+<p>使用bdscroll</p>
+<div class="c-container">
+    <div class="c-row-tile c-scroll-wrapper wa-image-scroll-wrapper-bdscroll">
+        <div class="c-scroll-parent-gap wa-image-scroller">
+            <div class="c-scroll-element-gap wa-image-entity">
+                <a href="http://www.baidu.com" target="_blank">
+                <img data-imagedelaysrc="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题1</p>
+                </a>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题2</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题3</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题4</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" class="c-img">
+                <p style="text-align:center">标题5</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" data-imageinvisible="1" class="c-img">
+                <p style="text-align:center">标题6</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" data-imageinvisible="1" class="c-img">
+                <p style="text-align:center">标题7</p>
+            </div><div class="c-scroll-element-gap wa-image-entity">
+                <img data-imagedelaysrc="1x1.jpg" data-imageinvisible="1" class="c-img">
+                <p style="text-align:center">标题8</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['pmd/scroll/bdscroll'], function (bdScroll) {
+        var imageScroll = new bdScroll('.wa-image-scroll-wrapper-bdscroll', {
+            disableMouse: false,
+            momentum: true
+        });
+    });
+</script>
+
+
+<p>滑动分页</p>
+<div class="c-container">
+    <style type="text/css">
+        .wa-table-scroller{white-space:nowrap; width:300%;}
+        .wa-table-page{display:inline-block; vertical-align:top; width:33.4%; padding:0 15px;}
+    </style>
+    <div class="c-row-tile c-scroll-wrapper wa-table-scroll-wrapper">
+        <div class="wa-table-scroller">
+            <div class="wa-table-page">
+                <table class="c-table">
+                    <tbody>
+                        <tr class="c-table-hihead">
+                            <th><div>表头1</div></th><th><div>表头1</div></th><th><div>表头1</div></th>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index c-index-hot1">1</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index c-index-hot2">2</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index c-index-hot3">3</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><div class="wa-table-page">
+                <table class="c-table">
+                    <tbody>
+                        <tr class="c-table-hihead">
+                            <th><div>表头2</div></th><th><div>表头2</div></th><th><div>表头2</div></th>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index">1</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index">2</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index">3</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><div class="wa-table-page">
+                <table class="c-table">
+                    <tbody>
+                        <tr class="c-table-hihead">
+                            <th><div>表头3</div></th><th><div>表头3</div></th><th><div>表头3</div></th>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index">1</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index">2</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                        <tr>
+                            <td><span class="c-index">3</span></td><td>表格内容</td><td>表格内容</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div class="c-scroll-indicator wa-table-scroll-indicator">
+            <span class="c-scroll-dotty-now"></span><span></span><span></span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require(['pmd/scroll/bdscroll'], function (bdScroll) {
+            var imageScroll = new bdScroll('.wa-table-scroll-wrapper', {
+                disableMouse: false,
+                snap: true,
+                $indicator: $('.wa-table-scroll-indicator')
+            });
+        });
+    </script>
+</div>

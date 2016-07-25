@@ -1,3 +1,15 @@
+# custom
+server.js
+server.log
+build
+output
+
+
+# npm
+node_modules
+npm-debug.log
+
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

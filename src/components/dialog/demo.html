@@ -1,0 +1,159 @@
+<p>alert</p>
+<div class="c-container">
+    <div class="wa-dialog-alert">
+        <p>open alert</p>
+        <p>点击"open alert"打开一个alert对话框</p>
+    </div>
+    
+    <script type="text/javascript">
+    require(['pmd/dialog/alert'], function (DialogAlert) {
+        $('.wa-dialog-alert').on('click', function() {
+            DialogAlert({
+                title: 'Hello Alert',
+                text: '这是一个自定义alert对话框，你需要这个组件么？',
+                acceptText: '需要(只能需要)',
+                onAccept: function(){
+                    console.log('Alert 需要');
+                }
+            });
+        });
+    });
+    </script>
+</div>
+
+<p>confirm</p>
+<div class="c-container">
+    <div class="wa-dialog-confirm">
+        <p>open confirm</p>
+        <p>点击"open confirm"打开一个confirm对话框</p>
+    </div>
+    
+    <script type="text/javascript">
+    require(['pmd/dialog/confirm'], function (DialogConfirm) {
+        $('.wa-dialog-confirm').on('click', function() {
+            DialogConfirm({
+                title: 'Hello Confirm',
+                text: '这是一个自定义confirm对话框，你觉得这个组件有用么？',
+                acceptText: '有用',
+                onAccept: function() {
+                    console.log('I am so happy');
+                },
+                cancelText: '没用',
+                onCancel: function() {
+                    console.log('... so sad ...');
+                }
+            });
+        });
+    });
+    </script>
+</div>
+
+<p>自定义dialog</p>
+<div class="c-container">
+    <div class="wa-dialog-custom">
+        <p>open dialog</p>
+        <p>点击"open dialog"打开一个自定义对话框</p>
+    </div>
+    
+    
+    <script type="text/javascript">
+    require(['pmd/dialog/dialog'], function (Dialog) {
+        $('.wa-dialog-custom').on('click', function() {
+            new Dialog({
+                customClassName: 'wa-dialog-custom-layout',
+                title: 'Hello Dialog',
+                text: '<p>这是一个自定义对话框</p><p>您可以任意定制对话框的标题(title)、说明文字(text)以及多个水平排列的按钮</p><p>每一个按钮的位子(text)以及点击之后需要执行的自定义事件也均可以自定义</p>',
+                buttons: [
+                    {
+                        text: '确定',       // 按钮文字
+                        close: true,        // 点击后是否关闭,默认true
+                        onClick: function() {
+                            require(['pmd/dialog/alert'], function (DialogAlert) {
+                                DialogAlert({
+                                    title: 'Hello Alert',
+                                    acceptText: '确认(OK)',
+                                    onAccept: function(){
+                                        console.log('Alert 确认');
+                                    }
+                                });
+                            });
+                        }
+                    },
+                    {
+                        text: '取消',
+                        onClick: function() {
+                            console.log('取消');
+                        }
+                    },
+                    {
+                        text: '我要表态',
+                        onClick: function() {
+                            console.log('说点什么呢');
+                        }
+                    }
+                ]
+            });
+        });
+    });
+    </script>
+</div>
+
+<div class="c-container">
+    <div class="wa-dialog-custom-vertical">
+        <p>open vertical dialog</p>
+        <p>点击"open vertical dialog"打开一个按钮垂直排列的自定义对话框</p>
+    </div>
+    
+    <script type="text/javascript">
+    require(['pmd/dialog/dialog'], function (Dialog) {
+        $('.wa-dialog-custom-vertical').on('click', function() {
+            new Dialog({
+                title: 'Hello Vertical Dialog',
+                text: '这是一个按钮垂直排列的自定义对话框',
+                verticalButtons: true,      // 按钮垂直排列
+                buttons: [
+                    {
+                        text: 'button 1'
+                    },
+                    {
+                        text: 'button 2'
+                    },
+                    {
+                        text: 'button 3'
+                    }
+                ]
+            });
+        });
+    });
+    </script>
+</div>
+
+<div class="c-container wa-dialog-text">
+    <style type="text/css">
+        .wa-dialog-text {line-height:3; color:#999;}
+    </style>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+    <p>这是一些无意义的内容，撑开页面以便测试滚动条</p>
+</div>
+
+<div class="c-container">
+    <div class="wa-dialog-alert">
+        <p>open alert</p>
+        <p>点击"open alert"打开一个alert对话框</p>
+    </div>
+</div>
+
+<div class="c-container">
+    <div class="wa-dialog-confirm">
+        <p>open confirm</p>
+        <p>点击"open confirm"打开一个confirm对话框</p>
+    </div>
+</div>

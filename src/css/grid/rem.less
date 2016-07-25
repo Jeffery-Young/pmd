@@ -1,0 +1,19 @@
+/*
+ * REM单位基准
+ * 设置100px主要为了方便计算 在页面任意地方 1rem = 100px
+ * 关于为何不使用10px：PC chrome有12px最小字号限制，若使用10px会造成pc调试困难带来不必要的麻烦
+ * 变换规则：
+ * 1.屏幕宽度360px以下，按0.9倍缩小
+ * @author yangfan
+ */
+
+
+html {
+    font-size: 100px;
+}
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 90px !important;
+    }
+}

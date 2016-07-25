@@ -1,0 +1,62 @@
+<p>直接展现的分享组件</p>
+<div class="c-container">
+    <div class="wa-share-page">
+        <p>在该dom下插入分享组件，你也可以通过点击该文本再开启一个分享浮层</p>
+    </div>
+    
+    <script type="text/javascript">
+        require(['pmd/share/share'], function (Share) {
+            var share = new Share({
+                url: location.href,
+                title: 'PS Material Design',
+                content: 'PS Material Design UI',
+                iconUrl: 'http://m.baidu.com/static/searchbox/po/act/avengers/wxshare.jpg',
+                custom: [],
+                loginfo: {
+                    clk_from : 16024
+                }
+            });
+
+            // 调用render方法直接在页面中渲染dom
+            // 注意由于为js渲染会出现抖动,请注意执行时机
+            share.render($('.wa-share-page'), {
+                customClassName: 'wa-share-page-dom',
+                onRender: function () {
+                    console.log('Render done!');
+                }
+            });
+
+            $('.wa-share-page p').on('click', function () {
+                share.popup();
+            });
+        });
+    </script>
+</div>
+
+<p>popup浮层展现的分享组件</p>
+<div class="c-container">
+    <div class="wa-share-popup">
+        <p>Popup Share</p>
+        <p>点击"Popup Share"弹出一个分享组件</p>
+    </div>
+    
+    <script type="text/javascript">
+        require(['pmd/share/share'], function (Share) {
+            var share = new Share({
+                title: 'PS Material Design - Share',
+                custom: []
+            });
+
+            $('.wa-share-popup').on('click', function () {
+                share.popup({
+                    onOpen: function () {
+                        console.log('open share');
+                    },
+                    onClose: function () {
+                        console.log('close share');
+                    }
+                });
+            });
+        });
+    </script>
+</div>

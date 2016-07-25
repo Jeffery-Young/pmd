@@ -1,0 +1,89 @@
+/**
+ * @file 筛选浮层样式
+ * @author xieyaowu
+ * @description 通过fis的__inline编译到js中
+ */
+
+.c-popup-filter .c-popup-head {
+    display: none;
+}
+.c-popup-filter .c-popup-content {
+    margin: 0;
+    text-align: left;
+}
+.c-popup-filter-header,
+.c-popup-filter-list > li {
+    padding-left: 21px;
+    padding-right: 21px;
+}
+.c-popup-filter-header {
+    background-color: #f0f0f0;
+    height: 42px;
+    line-height: 42px;
+    overflow: hidden;
+}
+.c-popup-filter-title {
+    font-size: 18px;
+    text-align: center;
+}
+.c-popup-filter-list {
+    max-height: 171px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;  
+}
+.c-popup-filter-list > li {
+    border-bottom: 1px solid  #ebebeb;
+    height: 42px;
+    line-height: 42px;
+}
+.c-popup-filter-list > li:last-child {
+    border-bottom: none;
+}
+.c-popup-filter-inner {
+    position: relative;
+}
+.c-popup-filter-item .c-line-clamp1 {
+    margin-right: 30px;
+}
+.c-popup-filter-item .c-icon:after {
+    content: "\e608";
+    display: none;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    width: 30px;
+}
+.c-popup-filter-radio .c-popup-filter-selected .c-icon:after,
+.c-popup-filter-multiple .c-popup-filter-selected .c-icon:after {
+    display: block;
+}
+.c-popup-filter-multiple .c-icon {
+    border: 1px solid  #ddd;
+    height: 16px;
+    margin-top: 12px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16px;
+}
+.c-popup-filter-multiple .c-icon:after {
+    color: #3fa1ff;
+    font-size: 10px;
+    height: 16px;
+    line-height: 16px;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 16px;
+}
+.c-popup-filter-multiple .c-popup-filter-title {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+}
+.c-popup-filter-header-all,
+.c-popup-filter-header-done {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+}

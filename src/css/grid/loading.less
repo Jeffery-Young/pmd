@@ -1,0 +1,49 @@
+/*
+ * loading动画组件样式
+ * 调用：
+ * <div class="c-loading">
+ *     <i class="c-icon">&#xe780</i>
+ *     <p>加载中…</p>
+ * </div>
+ * @author yangfan
+ */
+
+@-webkit-keyframes c-loading-rotation {
+    from {
+        -webkit-transform: rotate(1deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+.c-loading {
+    text-align: center;
+}
+.c-loading i {
+    display: block;
+    position: relative;
+    font-size: 30px;
+    width: 54px;
+    height: 54px;
+    line-height: 52px;
+    color: #f3f3f3;
+    margin: auto;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        border-radius: 50%;
+        border: 2px solid #f3f3f3;
+        border-top-color: #ddd;
+        -webkit-transform-origin: 50% 50%;
+        -webkit-animation: c-loading-rotation 1s ease 0s infinite normal;
+    }
+}
+.c-loading p {
+    color: #999;
+    margin-top: 8px;
+    text-indent: 0.5em;
+}

@@ -1,0 +1,109 @@
+<h3>一个简单的toast</h3>
+<div class="c-container">
+    <style type="text/css">
+        span {
+            color:#0894ec;
+            cursor: pointer;
+        }
+    </style>
+    <div class="wa-toast">
+        <span>open toast</span>
+        <p>点击"open toast"打开一个最简单的toast</p>
+    </div>
+    
+    <script type="text/javascript">
+    require(['pmd/toast/toast'], function (Toast) {
+        $('.wa-toast').on('click', function() {
+            new Toast({msg: '发送成功'});
+        });
+    });
+    </script>
+</div>
+
+<div class="c-container wa-toast-text">
+    <style type="text/css">
+        .wa-toast-text {line-height:1.5; color:#999;}
+    </style>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+</div>
+<h3>异步请求中的toast</h3>
+<div class="c-container">
+    <div class="wa-toast-async">
+        <span>请求数据</span>
+    </div>
+    
+    <script type="text/javascript">
+        $('.wa-toast-async').on('click', function (e) {
+            require(['pmd/toast/toast'], function (Toast) {
+                var toast_a =  new Toast({
+                    msg: $('<div>正在加载中...</div>'),      // 展示文案，支持html和Zepto对象
+                    autoClose: false,
+                    onOpen: function () {
+                        console.log('toast打开');
+                    },
+                    onClose: function () {
+                        console.log('toast关闭');
+                    }
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: '/',
+                    data: { name: 'XXX' },
+                    dataType: 'json',
+                    success: function(data){
+                        console.log('请求成功');
+                        toast_a.close();
+                        //TODO
+                    },
+                    error: function(xhr, type){
+                        console.log('异步请求失败');
+                        setTimeout(function(){
+                            toast_a.close();
+                            new Toast({msg: '请求出错'});
+                        }, 2000);
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+<div class="c-container wa-toast-text">
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+</div>
+<h3>手动toast</h3>
+<div class="c-container">
+    <div class="wa-toast-more">
+        <span class='wa-toast-open'>打开toast</span>
+        <span class='wa-toast-close' style='margin-left:0.8rem'>关闭toast</span>
+    </div> 
+    <script type="text/javascript">
+    require(['pmd/toast/toast'], function (Toast) {  
+        var toast;
+        $('.wa-toast-open').on('click', function() {
+            toast = new Toast({
+                msg: $('<div>正在上传...</div>'),      // 展示文案，支持html和Zepto对象
+                autoClose: false
+            });
+        });
+        $('.wa-toast-close').on('click', function() {
+            toast.close();
+        });
+    });
+    </script>
+</div>
+<div class="c-container wa-toast-text">
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+    <p>这是无意义的内容，撑开页面测试滚动条</p>
+</div>

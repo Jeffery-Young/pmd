@@ -1,0 +1,80 @@
+{
+    "menu": [
+        {
+            "name": "使用rem",
+            "hash": "rem"
+        },
+        {
+            "name": "动画",
+            "hash": "animate"
+        },
+        {
+            "name": "卡片",
+            "hash": "card"
+        },
+        {
+            "name": "流式栅格",
+            "hash": "grid"
+        },
+        {
+            "name": "流式图片",
+            "hash": "image"
+        },
+        {
+            "name": "文字图标",
+            "hash": "texticon"
+        },
+        {
+            "name": "纯色图标",
+            "hash": "iconfont"
+        },
+        {
+            "name": "按钮",
+            "hash": "button"
+        },
+        {
+            "name": "表单",
+            "hash": "form"
+        },
+        {
+            "name": "短链",
+            "hash": "slink"
+        },
+        {
+            "name": "表格",
+            "hash": "table"
+        },
+        {
+            "name": "横向滑动",
+            "hash": "scroll"
+        },
+        {
+            "name": "标签页",
+            "hash": "tabs"
+        },
+		{
+			"name": "对话框",
+			"hash": "dialog"
+		},
+        {
+            "name": "popup",
+            "hash": "popup"
+        },
+        {
+            "name": "toast",
+            "hash": "toast"
+        },
+		{
+			"name": "分享",
+			"hash": "share"
+		},
+		{
+			"name": "无限滚动",
+			"hash": "infinitescroll"
+		},
+        {
+            "name": "videoPlayer",
+            "hash": "player"
+        }
+    ]
+}

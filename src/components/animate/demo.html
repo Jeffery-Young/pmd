@@ -1,0 +1,171 @@
+<style type="text/css">
+    .wa-animate-frame {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: #EEFBFF;
+        box-shadow: 0 0 8px #909090;
+    }
+    .wa-animate-element {
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+        font-size: 0.5rem;
+        margin: 20px auto;
+        border-radius: 20px;
+        box-shadow: 0 0 20px #fff;
+        background: -webkit-linear-gradient(92deg, #2665f3, #3ac8fe);
+    }
+    .wa-animate-control {
+        margin-top: 190px;
+    }
+    .wa-animate-control span {
+        padding: 3px 10px;
+        line-height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .wa-animate-control span:hover {
+        color: #fff;
+        background: -webkit-linear-gradient(92deg, #2665f3, #3ac8fe);
+        border-color: #3ac8fe;
+    }
+    .wa-animate-speed {
+        width: 60px;
+        text-align: center;
+        font-size: 18px;
+        border-bottom: 1px solid #ccc;
+        margin: 10px 5px;
+    }
+    .wa-animate-speed-up,
+    .wa-animate-speed-down {
+        width: 20px;
+        line-height: 18px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+    .wa-animate-code {
+        margin-left: 10px;
+        width: 70px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="wa-animate-frame">
+    <p>
+        Set Speed:&nbsp;
+        <button class="wa-animate-speed-down">-</button>
+        <input type="text" class="wa-animate-speed" value="600" />
+        <button class="wa-animate-speed-up">+</button>
+        ms
+        <span class="wa-animate-code">CODE</span>
+    </p>
+    <div class="wa-animate-element">Animate</div>
+</div>
+
+
+<div class="c-container wa-animate-control">
+    <span>shake</span>
+    <span>flash</span>
+    <span>swing</span>
+    <span>bounce</span>
+    <span>tada</span>
+    <span>wobble</span>
+    <span>pulse</span>
+    <span>flip</span>
+    <span>flipInX</span>
+    <span>flipOutX</span>
+    <span>flipInY</span>
+    <span>flipOutY</span>
+    <span>fadeIn</span>
+    <span>fadeInUp</span>
+    <span>fadeInDown</span>
+    <span>fadeInLeft</span>
+    <span>fadeInRight</span>
+    <span>fadeInUpBig</span>
+    <span>fadeInDownBig</span>
+    <span>fadeInLeftBig</span>
+    <span>fadeInRightBig</span>
+    <span>fadeOut</span>
+    <span>fadeOutUp</span>
+    <span>fadeOutDown</span>
+    <span>fadeOutLeft</span>
+    <span>fadeOutRight</span>
+    <span>fadeOutUpBig</span>
+    <span>fadeOutDownBig</span>
+    <span>fadeOutLeftBig</span>
+    <span>fadeOutRightBig</span>
+    <span>slideInDown</span>
+    <span>slideInLeft</span>
+    <span>slideInRight</span>
+    <span>slideOutUp</span>
+    <span>slideOutLeft</span>
+    <span>slideOutRight</span>
+    <span>bounceIn</span>
+    <span>bounceInDown</span>
+    <span>bounceInUp</span>
+    <span>bounceInLeft</span>
+    <span>bounceInRight</span>
+    <span>bounceOut</span>
+    <span>bounceOutDown</span>
+    <span>bounceOutUp</span>
+    <span>bounceOutLeft</span>
+    <span>bounceOutRight</span>
+    <span>rotateIn</span>
+    <span>rotateInDownLeft</span>
+    <span>rotateInDownRight</span>
+    <span>rotateInUpLeft</span>
+    <span>rotateInUpRight</span>
+    <span>rotateOut</span>
+    <span>rotateOutDownLeft</span>
+    <span>rotateOutDownRight</span>
+    <span>rotateOutUpLeft</span>
+    <span>rotateOutUpRight</span>
+    <span>lightSpeedIn</span>
+    <span>lightSpeedOut</span>
+    <span>hinge</span>
+    <span>rollIn</span>
+    <span>rollOut</span>
+</div>
+
+<script type="text/javascript">
+    var nowAnimate;
+
+    $('.wa-animate-speed-down').on('click', function () {
+        $('.wa-animate-speed').val(parseInt($('.wa-animate-speed').val()) - 100);
+    });
+    $('.wa-animate-speed-up').on('click', function () {
+        $('.wa-animate-speed').val(parseInt($('.wa-animate-speed').val()) + 100);
+    });
+
+    require(['pmd/animate/animate'], function (Animate) {
+        $('.wa-animate-control').delegate('span', 'click', function(){
+            nowAnimate = $(this).html();
+            $('.wa-animate-element').animate(nowAnimate, parseInt($('.wa-animate-speed').val()), function () {
+                console.log('do sth...');
+            });
+        });
+    });
+
+    require(['pmd/popup/popup'], function (Popup) {
+        $('.wa-animate-code').on('click', function () {
+            if (!nowAnimate) {
+                return;
+            };
+            var cssCode = "&lt;div class='myElement animate " + nowAnimate + "'&gt;&lt;/div&gt;";
+            var jsCode = "$('.myElement').animate('" + nowAnimate + "', " + parseInt($('.wa-animate-speed').val()) + ", function () {<br/>" + 
+                    "&nbsp;&nbsp;&nbsp;&nbsp;// console.log('do sth...');<br/>" + 
+                "});";
+            new Popup({
+                title: nowAnimate,
+                content: '<div style="line-height:25px; text-align:left"><p><b>CSS Code：</b></p>' + '<p>' + cssCode + '</p><p><b>JS Code：</b></p><p>' + jsCode + '</p></div>'
+            });
+        });
+    });
+</script>

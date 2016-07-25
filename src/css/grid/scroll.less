@@ -1,0 +1,56 @@
+/*
+ * 滑动组件样式
+ * @author yangfan
+ */
+
+// 滚动元素可视区容器
+.c-scroll-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+// 滚动元素间距
+.c-scroll-parent-gap {
+    padding: 0 0.11rem 0 @container-padding-x;
+    .c-scroll-element-gap {
+        padding-right: 0.1rem;
+    }
+}
+// 滚动指示器
+.c-scroll-indicator {
+    display: inline-block;
+    position: relative;
+    height: 6px;
+    .c-scroll-dotty {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #999;
+    }
+    .c-scroll-dotty-now {
+        background-color: #999;
+    }
+    span {
+        display: block;
+        float: left;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #e1e1e1;
+        margin-right: 7px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// 原生滚动方案插入的中间层dom,需要隐藏这一层的默认滚动条样式
+.c-scroll-touch {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 30px;
+    margin-top: -30px;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+}

@@ -1,0 +1,212 @@
+<p>半屏(根据内容自适应)</p>
+<div class="c-container">
+    <div class="wa-popup-half">
+        <p>open popup</p>
+        <p>点击"open popup"打开一个半屏popup</p>
+    </div>
+    
+    <script type="text/javascript">
+		require(['pmd/popup/popup'], function(popupFirst){
+			var html = '<div>没有任何意义，只是为了撑开popup的高度</div>' + 
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+				'<div>没有任何意义，只是为了撑开popup的高度</div>' ;
+		    $('.wa-popup-half').on('click', function (e) {
+
+		        new popupFirst({
+		         	title: '这是一个半屏的popup',
+	                content: html,
+	                fullView: false,
+	                onOpen: function(){
+	                	console.log('open');
+	                },
+	                onClose: function(){
+	                	console.log('close');
+	                }
+		        });
+		    });
+		});
+	</script>
+</div>
+<p>全屏(1、内容等于或超过屏幕高度会展示全屏；2、配置为全屏)</p>
+<div class="c-container">
+    <div class="wa-popup-all">
+        <p>open popup</p>
+        <p>点击"open popup"打开一个全屏popup</p>
+    </div>
+    
+    <script type="text/javascript">
+		require(['pmd/popup/popup'], function(popupFirst){
+		    $('.wa-popup-all').on('click', function (e) {
+		    	var html = '<div>这是一些没有任何意义的内容，只是为了撑开popup的高度</div>',
+		    		content = '';
+		    	for (var i = 10; i > 0; i--) {
+		    		content += html; 
+		    	};
+		        new popupFirst({
+		         	title: '这是一个全屏的popup，title可以长一点，可以自动关省略。',
+	                content: content,
+	                fullView: true,
+	                onOpen: function(){
+	                	console.log('open');
+	                },
+	                onClose: function(){
+	                	console.log('close');
+	                }
+		        });
+		    });
+		});
+	</script>
+</div>
+<div class="c-container wa-dialog-text">
+    <style type="text/css">
+        .wa-dialog-text {line-height:3; color:#999;}
+    </style>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+    <p>无意义的内容，撑开页面以便测试滚动条</p>
+</div>
+<p>无title</p>
+<div class="c-container">
+    <div class="wa-popup-notitle">
+        <p>open popup</p>
+        <p>点击"open popup"快速打开一个全屏popup</p>
+    </div>
+    
+    <script type="text/javascript">
+		require(['pmd/popup/popup'], function(popupFirst){
+		    $('.wa-popup-notitle').on('click', function (e) {
+		    	var html = '<div>没有任何意义，只是为了撑开popup的高度</div>' + 
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' +
+		    				'<div>没有任何意义，只是为了撑开popup的高度</div>' ;
+		        new popupFirst({
+		         	title: '',
+	                content: html,
+	                fullView: false,
+	                customClassName: 'wa-popup-custom-modal',
+	                onOpen: function(){
+	                	console.log('open');
+	                },
+	                onClose: function(){
+	                	console.log('close');
+	                }
+		        });
+		    });
+		});
+	</script>
+</div>
+
+<h2>筛选</h2>
+<div class="c-container">
+    <div class="c-row">
+        <div class="c-span12">
+            <div class="c-btn" id="J-filter-1">打开单选</div>
+        </div>
+    </div>
+
+    <div class="c-row c-gap-top-large">
+        <div class="c-span12">
+            <div class="c-btn" id="J-filter-2">打开多选</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require([
+        'pmd/popup/filter'
+    ], function (Filter) {
+
+        var select1data = [
+            {
+                text: '按时间升序',
+                value: 1,
+                selected: true
+            },
+            {
+                text: '按时间降序',
+                value: 2
+            },
+            {
+                text: '发车时间降序',
+                value: 3
+            },
+            {
+                text: '发车时间升序',
+                value: 4
+            }
+        ];
+        $('#J-filter-1').on('click', function () {
+            new Filter({
+                title: '选择排序',
+                data: select1data,
+                onSelect: function (data) {
+                    if (data.event === 'none') {
+                        alert('没有修改！');
+                    }
+                    else {
+                        alert('索引从【' + data.old + '】修改为【' + data.index + '】，value从【' + data.oldValue + '】修改为【' + data.value + '】');
+                    }
+                }
+            });
+        });
+
+        var select2data = [
+            {
+                text: '动车',
+                value: 'D',
+                selected: true
+            },
+            {
+                text: '高铁',
+                value: 'G'
+            },
+            {
+                text: '特快',
+                value: 'T'
+            },
+            {
+                text: '空调普快',
+                value: 'K'
+            },
+            {
+                text: '其他',
+                value: '0'
+            },
+            {
+                text: '地铁',
+                value: 'S'
+            }
+        ];
+        $('#J-filter-2').on('click', function () {
+            // 多选
+            new Filter({
+                multiple: true,
+                title: '选择车型',
+                data: select2data,
+                onSelect: function (data) {
+                    if (data.event === 'none') {
+                        alert('没有修改！');
+                    }
+                    else {
+                        alert('索引从【' + data.old.join(',') + '】修改为【' + data.index.join(',') + '】，value从【' + data.oldValue.join(',') + '】修改为【' + data.value.join(',') + '】');
+                    }
+                }
+            });
+        });
+    });
+</script>

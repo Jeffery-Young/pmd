@@ -1,0 +1,57 @@
+/*
+ * Grid for Baidu Wise v1.0 (http://sfe.baidu.com/www/wise/grid/index.html)
+ * @author yangfan
+ */
+
+
+// 全局变量
+@grid-columns :         12;     // 12n栅格系统
+@grid-columns-width :   55;     // 1n宽度(包含border&padding)
+@grid-columns-padding : 12;     // 栅格左右内间距(单边)
+
+@container-margin :         0.08rem;    // 卡片外边距(上下)
+@container-padding-x :      0.21rem;    // 卡片左右边距
+@container-padding-top :    0.1rem;     // 卡片上边距
+@container-padding-bottom : 0.08rem;	// 卡片下边距
+
+@color-container-bg :   #fff;       // 卡片底色
+@color-text :           #333;       // 正文字体颜色
+@color-text-graya :     #666;       // 配合图标出现的可点文字
+@color-text-gray :      #999;       // 辅助灰字颜色
+@color-text-link :      #00c;       // 链接色
+@color-text-em :        #b00;       // 关键字颜色
+@color-text-url :       #2a9457;    // showurl颜色(待定)
+@color-text-red :       #e43;       // 风险提示红色
+@color-text-orange:     #ff6500;    // 橙色(一般用于价格)
+
+@font-normal :  ~"14px/22px Arial, Helvetica, sans-serif";   // 标准文字
+@font-title :   ~"18px/26px Arial, Helvetica, sans-serif";   // 标题文字
+@font-small :   ~"13px/21px Arial, Helvetica, sans-serif";   // 辅助文字
+
+@space-size :           0.08rem;       // 普通间距
+@space-size-small :     0.04rem;       // 小间距
+@space-size-large :     0.12rem;       // 大间距
+
+
+// common & frame
+@import "grid/rem.less";
+@import "grid/basecard.less";
+@import "grid/frame.less";
+
+
+// Core CSS
+@import "grid/line.less";
+@import "grid/color.less";
+@import "grid/gap.less";
+@import "grid/image.less";
+@import "grid/table.less";
+@import "grid/shortlink.less";
+@import "grid/texticon.less";
+@import "grid/form.less";
+
+
+// Components
+@import "grid/loading.less";
+@import "grid/tabs.less";
+@import "grid/scroll.less";
+@import "grid/location.less";

@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'cicons';
+    src: url(../font/cicon.eot);
+    src: url(../font/cicon.eot#iefix) format('embedded-opentype'),
+         url(../font/cicon.woff) format('woff'),
+         url(../font/cicon.ttf) format('truetype'),
+         url(../font/cicon.svg?#cicons) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.c-icon {
+    font-family: "cicons" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,42 @@
+/*
+ * 表格样式
+ * @author yangfan
+ */
+
+
+// 表格样式
+.c-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.c-table th,
+.c-table td {
+    border-bottom: 1px solid #f1f1f1;
+    text-align: left;
+    font-weight: normal;
+    padding: 7px 0;
+}
+// 带背景色的行,一般用于表头
+.c-table-hihead th {
+    padding: 0;
+    border-bottom: 0 none;
+    background-color: #f6f6f6;
+    line-height: 37px;
+}
+.c-table-hihead div {
+    background-color: #f6f6f6;
+}
+.c-table-hihead th:first-child div {
+    margin-left: -@container-padding-x;
+    padding-left: @container-padding-x;
+}
+.c-table-hihead th:last-child div {
+    margin-right: -@container-padding-x;
+    padding-right: @container-padding-x;
+}
+// 无边线行,一般用于最后一行
+.c-table-noborder th,
+.c-table-noborder td {
+    border-bottom: 0 none;
+}

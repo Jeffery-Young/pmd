@@ -1,0 +1,45 @@
+/**
+ * @file 播放器组件样式
+ * @author zhaolei09
+ * @description 通过fis的__inline编译到js中
+ */
+
+/*video 标签*/
+.c-videoplayer {
+    width: 100%;
+}
+
+/*ios为全屏播放，当前ui中不显示视频*/
+/*设置父级节点为position: relative || absolute，视频定位在居中位置，可从容器中间展开全屏播放*/
+.c-videoplayer-box-ios {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.c-videoplayer-box-ios video {
+    width: 1px;
+    height: 1px;
+}
+
+
+/*android 全屏弹窗容器*/
+.c-popup-wrapper .c-videoplayer-popup {
+    background: #000;
+    color: #fff;
+}
+
+.c-videoplayer-popup video {
+    width: 100%;
+    max-height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50%;
+    visibility: hidden;
+    /*display: none;*/
+}

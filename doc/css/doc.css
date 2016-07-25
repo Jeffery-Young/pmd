@@ -1,0 +1,210 @@
+/* reset */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    margin: 0;
+    padding: 0;
+}
+/*ul,ol,li {
+    list-style: none;
+}*/
+
+/* frame */
+body {
+    font-family: Helvetica, Arial, "Microsoft Yahei", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #212121;
+    background: #fafafa;
+}
+/* 头部 logo & 下载 */
+#header {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #039BE5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    transition: all 0.15s;
+}
+#header #logo {
+    font-size: 22px;
+    line-height: 60px;
+    margin-left: 20px;
+    float: left;
+}
+#header #logo a {
+    color: #fff;
+    text-decoration: none;
+}
+#header #download {
+    float: right;
+    margin: 13px 20px;
+}
+#header #download a {
+    display: block;
+    width: 140px;
+    height: 34px;
+    line-height: 35px;
+    text-align: center;
+    text-decoration: none;
+    background: #C9EEFF;
+    color: #123D9F;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.6s;
+}
+#header #download a:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px #fff;
+}
+
+
+/* 内容框架 导航/文档/示例 */
+#container {
+    width: 100%;
+    min-width: 1024px;
+    margin: 0 auto;
+    padding-top: 100px;
+    overflow: hidden;
+}
+/* 内容框架 - 中部markdown文档区域 */
+#con-doc {
+    margin: 0 410px 30px 170px;
+    padding: 0 30px;
+}
+#con-doc h1 {
+    font-family: Helvetica, Arial, "Microsoft Yahei", "Helvetica Neue", sans-serif;
+    color: #039BE5;
+}
+/* 内容框架 - 左侧导航 */
+#con-menu {
+    width: 170px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#con-menu * {
+    transition: all 0.3s;
+}
+#con-menu ul {
+    width: 170px;
+    margin: 80px 0 50px 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+#con-menu ul li {
+    padding: 8px 16px;
+}
+#con-menu ul li:hover {
+    background: rgba(0, 0, 0, 0.1);
+    padding-left: 25px; 
+}
+#con-menu ul a {
+    color: #666;
+    text-decoration: none;
+    display: block;
+}
+#con-menu ul li.selected {
+    padding-left: 25px;
+    background: #FAFAFA;
+    border-right: 5px solid #039BE5;
+}
+#con-menu ul li.selected a {
+    color: #0894ec;
+}
+/* 左侧导航自定义滚动条样式 */
+#con-menu::-webkit-scrollbar {
+    width: 0;
+}
+#con-menu:hover::-webkit-scrollbar {
+    width: 4px;
+}
+#con-menu::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+#con-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+/* 内容框架 - 右侧示例 */
+#con-example {
+    position: relative;
+    width: 410px;
+    height: 850px;
+    float: right;
+}
+#device {
+    width: 400px;
+    height: 813px;
+    background: url("device-sprite.png") 0 0 no-repeat;
+    background-size: 300%;
+}
+#device #device-content {
+    position: absolute;
+    top: 119px;
+    left: 38px;
+    width: 324px;
+    height: 575px;
+    overflow: hidden;
+}
+#demo-link {
+    position: absolute;
+    top: 87px;
+    left: 38px;
+}
+#demo-link a {
+    display: block;
+    width: 324px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    background: #03a9f4;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+#demo-qrcode {
+    display: none;
+    position: absolute;
+    top: 32px;
+    width: 324px;
+    height: 324px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+}
+#demo-qrcode canvas {
+    margin: 12px;
+}
+
+
+/* 底部 */
+#footer {
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    padding: 20px 0;
+    background: #333;
+}
+#footer a {
+    color: #fff;
+    text-decoration: none;
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+#footer p {
+    margin-left: 200px;
+}

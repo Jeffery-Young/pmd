@@ -1,0 +1,137 @@
+<p>等分固定tabs</p>
+<div class="c-container">
+    <div class="c-tabs c-gap-top wa-tabs-wrapper-fixed">
+        <div class="c-row-tile">
+            <ul class="c-tabs-nav">
+                <li class="c-tabs-nav-li c-tabs-nav-selected">第一季
+                </li><li class="c-tabs-nav-li">第二季
+                </li><li class="c-tabs-nav-li">第三季
+                </li><li class="c-tabs-nav-li">第四季更新至09
+                </li>
+            </ul>
+        </div>
+        <div class="c-tabs-content">第一季内容</div>
+        <div class="c-tabs-content" style="display:none;">第二季内容</div>
+        <div class="c-tabs-content" style="display:none;">第三季内容</div>
+        <div class="c-tabs-content" style="display:none;">第四季内容</div>
+    </div>
+
+    <script type="text/javascript">
+    require(['pmd/tabs/tabs'], function (Tabs) {
+        var fixedTabs = new Tabs($('.wa-tabs-wrapper-fixed'));
+    });
+    </script>
+</div>
+
+<p>横滑tabs</p>
+<div class="c-container">
+    <div class="c-tabs c-gap-top wa-tabs-wrapper-scroll">
+        <div class="c-row-tile">
+            <div class="c-tabs-nav-view">
+                <ul class="c-tabs-nav">
+                    <li class="c-tabs-nav-li">全部
+                    </li><li class="c-tabs-nav-li">俄罗斯
+                    </li><li class="c-tabs-nav-li">美国
+                    </li><li class="c-tabs-nav-li">中国
+                    </li><li class="c-tabs-nav-li">英格兰
+                    </li><li class="c-tabs-nav-li">日本
+                    </li><li class="c-tabs-nav-li">德国
+                    </li><li class="c-tabs-nav-li">法兰西
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="c-tabs-content">全部区域</div>
+        <div class="c-tabs-content" style="display:none;">俄罗斯区域</div>
+        <div class="c-tabs-content" style="display:none;">美国区域</div>
+        <div class="c-tabs-content" style="display:none;">中国区域</div>
+        <div class="c-tabs-content" style="display:none;">英格兰区域</div>
+        <div class="c-tabs-content" style="display:none;">日本区域</div>
+        <div class="c-tabs-content" style="display:none;">德国区域</div>
+        <div class="c-tabs-content" style="display:none;">法兰西区域</div>
+    </div>
+
+    <script type="text/javascript">
+    require(['pmd/tabs/tabs'], function (Tabs) {
+        var scrollTabs = new Tabs($('.wa-tabs-wrapper-scroll'), {
+            allowScroll: true,
+            toggleMore: false,
+            current: 7,
+            onTabScrollEnd: function (e) {
+                console.log(e);
+            }
+        });
+    });
+    </script>
+</div>
+
+<p>带下拉按钮的横滑tabs</p>
+<div class="c-container">
+    <div class="c-tabs c-gap-top wa-tabs-wrapper-more">
+        <div class="c-row-tile">
+            <div class="c-tabs-nav-view">
+                <ul class="c-tabs-nav">
+                    <li class="c-tabs-nav-li c-tabs-nav-selected">全部
+                    </li><li class="c-tabs-nav-li">俄罗斯
+                    </li><li class="c-tabs-nav-li">美国
+                    </li><li class="c-tabs-nav-li">中国
+                    </li><li class="c-tabs-nav-li">英格兰
+                    </li><li class="c-tabs-nav-li">日本
+                    </li><li class="c-tabs-nav-li">德国
+                    </li><li class="c-tabs-nav-li">法兰西
+                    </li>
+                </ul>
+                <div class="c-tabs-nav-toggle"></div>
+            </div>
+        </div>
+        <div class="c-tabs-content">全部区域</div>
+        <div class="c-tabs-content" style="display:none;">俄罗斯区域</div>
+        <div class="c-tabs-content" style="display:none;">美国区域</div>
+        <div class="c-tabs-content" style="display:none;">中国区域</div>
+        <div class="c-tabs-content" style="display:none;">英格兰区域</div>
+        <div class="c-tabs-content" style="display:none;">日本区域</div>
+        <div class="c-tabs-content" style="display:none;">德国区域</div>
+        <div class="c-tabs-content" style="display:none;">法兰西区域</div>
+    </div>
+
+    <script type="text/javascript">
+    require(['pmd/tabs/tabs'], function (Tabs) {
+        var moreTabs = new Tabs($('.wa-tabs-wrapper-more'), {
+            allowScroll: true,
+            toggleMore: true,
+            toggleLabel: "请选择国家"
+        });
+    });
+    </script>
+</div>
+
+
+<p>卡片底部选项卡</p>
+<div class="c-container" tpl="tabs-card">
+    <div class="c-tabs c-gap-top wa-tabs-wrapper-card">
+        <div class="c-tabs-content">百度音乐</div>
+        <div class="c-tabs-content" style="display:none;">QQ音乐</div>
+        <div class="c-tabs-content" style="display:none;">虾米音乐</div>
+        <div class="c-tabs-content" style="display:none;">听音乐</div>
+        <div class="c-tabs-content" style="display:none;">网易云音乐</div>
+        <div class="c-row-tile c-row-bottom">
+            <div class="c-tabs-nav-view">
+                <ul class="c-tabs-nav c-tabs-nav-bottom">
+                    <li class="c-tabs-nav-li c-tabs-nav-selected"><i class="c-tabs-nav-icon c-icon c-gap-right-small">&#xe780</i>百度音乐
+                    </li><li class="c-tabs-nav-li"><i class="c-tabs-nav-icon c-icon c-gap-right-small">&#xe780</i>QQ音乐
+                    </li><li class="c-tabs-nav-li"><i class="c-tabs-nav-icon c-icon c-gap-right-small">&#xe780</i>虾米音乐
+                    </li><li class="c-tabs-nav-li"><i class="c-tabs-nav-icon c-icon c-gap-right-small">&#xe780</i>听音乐
+                    </li><li class="c-tabs-nav-li"><i class="c-tabs-nav-icon c-icon c-gap-right-small">&#xe780</i>网易云音乐
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    require(['pmd/tabs/tabs'], function (Tabs){
+        var fixedTabs = new Tabs($('.wa-tabs-wrapper-card'), {
+            allowScroll: true
+        });
+    });
+    </script>
+</div>
