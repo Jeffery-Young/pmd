@@ -3,13 +3,22 @@
     overflow: hidden;
 }
 
+.c-share-list .c-flexbox:not(:first-of-type) {
+    margin-top: 28px;
+}
+
 .c-share-list .c-share-btn {
-    color: #333;
+    width: 60px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    color: #666;
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .c-share-list .c-share-btn .c-img {
+    max-width: 60px;
+    margin: 0 auto;
     background: #fff;
     border: 1px solid #f0f0f0;
     border-radius: 50%;
@@ -18,7 +27,13 @@
 
 /* 分享取消按钮,只在popup打开时展现 */
 .c-share-cancel-btn {
-    border-color: #f0f0f0;
+    width: 100%;
+    margin-top: 20px;
+    color: #333;
+    font-size: 16px;
+    line-height: 48px;
+    background: #f8f8f8;
+    border-top: #eaeaea 1px solid;
 }
 
 
@@ -36,7 +51,7 @@
 
 /* popup打开时自定义容器背景色,需要提高选择器优先级 */
 .c-popup-wrapper .c-share-popup-modal {
-    background-color: #f0f0f0;
+    background-color: #f1f1f1;
 }
 
 .c-share-popup-modal .c-popup-head {
@@ -45,5 +60,5 @@
 
 .c-share-popup-modal .c-popup-content {
     margin: 0 auto;
-    padding: 21px;
+    padding-top: 20px;
 }

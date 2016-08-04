@@ -1,0 +1,30 @@
+<h3>调起手百图集插件</h3>
+<span class="c-gap-top c-gap-bottom c-color-red">注意，请在手百下打开，版本要求：android 手百 6.1+，ios 手百 6.2.0.0+</span>
+<div class="c-container">
+    <div class="c-row">
+        <div class="c-span12">
+            <div class="c-btn wa-zbImgList-btn">调起图集</div>
+        </div>
+    </div>
+    <script>
+        var imgs = [
+            {
+                url: 'http://d6.yihaodianimg.com/N03/M04/16/3D/CgQCs1N5MUiATsxVAADJLWXi5mk84700.jpg',
+                desc: 'haha0'
+            },
+            {
+                url: 'http://pic2.ooopic.com/11/07/15/30bOOOPICd7.jpg',
+                desc: 'haha1'
+            },
+            {
+                url: 'http://xs3.op.xywy.com/api.iu1.xywy.com/cms/20160615/d5556b6663168f6b4a3afce1cb524a5526196.jpg',
+                desc: 'haha2'
+            }
+        ];
+        require(['pmd/zbImgList/zbImgList'], function (zbImgList) {
+            $('.wa-zbImgList-btn').on('click', function () {
+                zbImgList(imgs, 0);
+            });
+        });
+    </script>
+</div>

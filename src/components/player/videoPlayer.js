@@ -78,6 +78,7 @@ define(function() {
         // 关键播放时间点设置
         setTimeEvents: function() {
             this.timeEvents = {
+                dataready: 0.0000001,
                 onefifth: 0.2,
                 fourfifths: 0.8,
                 onehalf: 0.5,
@@ -85,8 +86,16 @@ define(function() {
             };
         },
 
+        // 初始化一些参数设置
+        initParams: function () {
+            var self = this;
+            self.dataready = 0;
+        },
+
         play: function(opt) {
             var self = this;
+
+            self.initParams();
 
             // 插入视频节点
             self.appendVideo(opt);
@@ -155,6 +164,9 @@ define(function() {
             if ((!$.os || !$.os.ios) && options.android
                 // 容错 首次开发少写了一个c
                 && (options.android.playMode === 'fullsreen' || options.android.playMode === 'fullscreen')) {
+                video.on('dataready', function () {
+                    self.dataready = 1;
+                });
                 self.fullsreenForAndriod(opt);
                 return;
             }
@@ -188,38 +200,71 @@ define(function() {
             require(['../popup/popup'], function (Popup) {
                 var popup = new Popup({
                     title: options.title || '',
-                    content: '',
+                    content: '<div class="c-loading">\
+                                <i class="c-icon">&#xe780</i>\
+                                <p>加载中...</p>\
+                            </div>',
                     fullView: true,
                     customClassName: 'c-videoplayer-popup',
                     onOpen: function () {
-                        popup.$popupContent.html(video);
-
-                        // 关闭按钮距离上方的距离
-                        var freesize = 0;
-                        var remove = $('.c-videoplayer-popup .c-popup-remove');
-                        if (remove.length) {
-                            freesize = remove.height() + remove.offset().top;
+                        // webkit核下 android浏览器 加载较慢 会展示控制条体验问题 增加loading优化
+                        if (self.dataready === 1) {
+                            addVideo();
+                        } else {
+                            video.on('dataready', function () {
+                                addVideo();
+                                self.dataready = 1;
+                            });
                         }
 
-                        // 屏幕旋转后，设置video的位置和尺寸
-                        $(window).off('orientationchange.playvideosize resize.playvideosize')
-                            .on('orientationchange.playvideosize resize.playvideosize', function () {
-                                self.calculateVideo({
-                                    freesize: freesize
-                                });
-                            });
-
-                        // 设置video的位置和尺寸
-                        self.calculateVideo({
-                            freesize: freesize
-                        });
+                        // 如果超过某个时间（6s） 还未展示 则立即展示出来
+                        clearLoadingTimer();
+                        self.loadingTimer = setTimeout(function () {
+                            if (self.dataready !== 1) {
+                                addVideo();
+                                self.dataready = 1;
+                            }
+                        }, 6000);
                     },
                     onClose: function () {
                         // 初始化
                         $(window).off('orientationchange.playvideosize');
                         self.initStyle();
+                        clearLoadingTimer();
                     }
                 });
+
+                // 清除loading异常timer
+                function clearLoadingTimer() {
+                    if (self.loadingTimer) {
+                        clearTimeout(self.loadingTimer);
+                        self.loadingTimer = null;
+                    }
+                }
+                // 添加视频节点
+                function addVideo() {
+                    popup.$popupContent.html(video);
+
+                    // 关闭按钮距离上方的距离
+                    var freesize = 0;
+                    var remove = $('.c-videoplayer-popup .c-popup-remove');
+                    if (remove.length) {
+                        freesize = remove.height() + remove.offset().top;
+                    }
+
+                    // 屏幕旋转后，设置video的位置和尺寸
+                    $(window).off('orientationchange.playvideosize resize.playvideosize')
+                        .on('orientationchange.playvideosize resize.playvideosize', function () {
+                            self.calculateVideo({
+                                freesize: freesize
+                            });
+                        });
+
+                    // 设置video的位置和尺寸
+                    self.calculateVideo({
+                        freesize: freesize
+                    });
+                }
 
                 // 解决android手百关闭时页面抖动问题  待popup组件升级后更改 @士浩
                 var remove = $('.c-videoplayer-popup .c-popup-remove');

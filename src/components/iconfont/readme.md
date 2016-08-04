@@ -159,6 +159,7 @@ iconfont使用与正常文字无异，大小、颜色都可以采用文字方法
     <tr><td><i class="c-icon">&#xe657</i></td><td>排序</td><td>&#xe657</td></tr>
     <tr><td><i class="c-icon">&#xe659</i></td><td>ring</td><td>&#xe659</td></tr>
     <tr><td><i class="c-icon">&#xe658</i></td><td>camera</td><td>&#xe658</td></tr>
+    <tr><td><i class="c-icon">&#xe65b</i></td><td>camera(细)</td><td>&#xe65b</td></tr>
     <tr><td><i class="c-icon">&#xe65a</i></td><td>积分</td><td>&#xe65a</td></tr>
 </table>
 ```

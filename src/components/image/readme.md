@@ -64,6 +64,7 @@ $('body').one('scroll', function() {
 | c-img-l   | 3:4长图  |
 | c-img-w   | 16:9宽图 |
 | c-img-x   | 4:3宽图  |
+| c-img-y   | 3:2宽图  |
 
 
 

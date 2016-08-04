@@ -43,3 +43,22 @@
     visibility: hidden;
     /*display: none;*/
 }
+
+
+.c-videoplayer-popup .c-popup-content {
+    height: 100%;
+}
+
+.c-videoplayer-popup .c-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 54px;
+}
+
+.c-videoplayer-popup .c-loading i::before {
+    border-top-color: #aaa;
+}

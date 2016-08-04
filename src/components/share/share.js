@@ -15,7 +15,7 @@ define(function () {
         url: window.location.href,
         title: '百度搜索有惊喜',       // 分享至外站的title,必选
         content: '百度搜索有惊喜',     // 分享至外站的摘要,可选,默认用title替代
-        iconUrl: '//m.baidu.com/se/static/pmd/pmd/share/images/bdu.jpg',
+        iconUrl: 'https://m.baidu.com/se/static/pmd/pmd/share/images/bdu.jpg',
         custom: []
     };
 
@@ -390,18 +390,22 @@ define(function () {
                 var num = list.length;
                 var lines = Math.ceil(num / 4);
                 for (var j = 0; j < lines; j++) {
-                    str += '<div class="c-row c-gap-bottom">';
+                    str += '<div class="c-flexbox">';
                     for (var i = 0; i < 4; i++) {
                         var index = j * 4 + i;
                         var obj = list[index];
-                        str += '<div class="c-span3 c-share-btn">';
-                        if (obj) {
-                            str += '<div class="c-img c-img-s">';
-                            str +=     '<img src="' + obj.icon + '" />';
-                            str += '</div>';
-                            str += '<div class="c-line-clamp1">' + obj.title + '</div>';
+                        if (obj || num > 4) {
+                            // 多于4个的时候才需要在第二行补空dom
+                            str += '<div class="c-share-btn">';
                         }
-                        str += '</div>';
+                        if (obj) {
+                            str += '<img class="c-img" src="' + obj.icon + '" />';
+                            str += '<div class="c-gap-top c-line-clamp1">' + obj.title + '</div>';
+                        }
+                        if (obj || num > 4) {
+                            // 多于4个的时候才需要在第二行补空dom
+                            str += '</div>';
+                        }
                     }
                     str += '</div>';
                 }
@@ -494,7 +498,7 @@ define(function () {
             }
 
             // 初始化"取消"按钮dom
-            var $dom_cancelBtn = $('<div class="c-row c-gap-top-large"><div class="c-span12"><div class="c-btn c-share-cancel-btn">取消</div></div></div>');
+            var $dom_cancelBtn = $('<div class="c-share-cancel-btn">取消</div>');
 
             // 以这种方式require是为了避免过早加载popup组件
             require(['../popup/popup'], function (Popup) {
@@ -506,9 +510,10 @@ define(function () {
                 });
 
                 // 执行横竖屏补丁,为popup容器设置最大宽度,避免横屏时显示内容过大
-                me.sharePopup.$popupContent.css({
-                    'max-width': me._horizontalHack() + 'px'
-                });
+                // 新ui不需要这个hack了
+                // me.sharePopup.$popupContent.css({
+                //     'max-width': me._horizontalHack() + 'px'
+                // });
 
                 // 点击"取消"按钮时关闭浮层
                 $dom_cancelBtn.on('click', function () {

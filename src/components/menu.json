@@ -75,6 +75,10 @@
         {
             "name": "videoPlayer",
             "hash": "player"
+        },
+        {
+            "name": "手百图集",
+            "hash": "zbImgList"
         }
     ]
 }

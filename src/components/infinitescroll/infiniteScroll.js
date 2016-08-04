@@ -158,7 +158,9 @@ define(function () {
 				// 当不支持orientation且返回高分屏尺寸时,这里会出bug
 				verticalScreenWidth = Math.min(window.screen.width, window.screen.height);
 			};
-			me.options.$result.width(verticalScreenWidth);
+			me.options.$result.css({
+				'max-width': verticalScreenWidth + 'px'
+			});
 		},
 
 		_bindScroll: function() {
