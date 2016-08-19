@@ -26,7 +26,7 @@
 
 
 /* 分享取消按钮,只在popup打开时展现 */
-.c-share-cancel-btn {
+.c-share-cancel-btn, .c-share-copytip-cancel-btn{
     width: 100%;
     margin-top: 20px;
     color: #333;
@@ -61,4 +61,26 @@
 .c-share-popup-modal .c-popup-content {
     margin: 0 auto;
     padding-top: 20px;
+}
+
+/* 复制链接提示 */
+.c-share-copytip-content {
+    padding: 0 20px;
+    color: #333;
+    text-align: left;
+}
+.c-share-copytip-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.c-share-copytip-linkwr {
+    padding: 7px 10px;
+    font-size: 14px;
+    line-height: 21px;
+    border: 1px dotted #d9d9d9;
+    word-break: break-all;
+}
+.c-share-copytip-link:visited,
+.c-share-copytip-link {
+    color: #333;
 }

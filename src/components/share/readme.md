@@ -52,11 +52,11 @@ require(['pmd/share/share'], function (Share) {
     * `icon:` 字符串，按钮的图标地址
     * `title:` 字符串，按钮的标题
     * `cb:` function，点击按钮后调用的函数
-
+* `onShareClick:` Function，每个分享btn点击的回调函数
 
 ## 结果页日志采集
 
-注意，日志采集仅在大搜结果页运行环境中生效，其它页面使用可忽略。
+`注意，日志采集仅在大搜结果页运行环境中生效，其它页面如果要发送日志，可以在回调函数onShareClick里面自行实现。`
 
 在大搜结果页环境下每个分享按钮点击均会发送tc交互日志，用以收集分享组件使用率，具体日志规范和格式可参考[sfe结果外链接点击](http://sfe.baidu.com/#/日志/无线网页搜索/点击日志/结果外链接点击)
 
@@ -71,6 +71,8 @@ new Share({
     content: 'PS Material Design UI',
     loginfo: {
         clk_from : 16024
+    },
+    onShareClick: function(type) {
     }
 });
 ```
@@ -78,6 +80,31 @@ new Share({
 `loginfo`必须为obj，且按照规范，需要传入`clk_from: srcid`标记该分享来源于哪个资源id。
 
 其它字段可自定义，注意key和value尽量简短。
+
+
+## 回流统计
+
+* 如果分享的是结果页`m.baidu.com`链接，统计回流用`sa`字段，具体规范参见[sfe结果外链接点击](http://sfe.baidu.com/#/日志/无线网页搜索/点击日志/结果外链接点击)
+
+* 如果分享的链接是tc链接`m.baidu.com/xxxx/tc?xxx`，统计回流用ct和cst，需要对分享出去的tc链接做处理，处理方法用大搜提供的公用方法：
+
+``` javascript
+url = B.utils.link.getShareTcUrl({
+    url: '',
+    loginfo: {
+        clk_form:''
+    }
+})
+```
+
+`url`为需要处理的tc链接
+
+`loginfo`必须为obj，且按照规范，需要传入`clk_from: srcid`标记该分享来源于哪个资源id。
+
+其它字段可自定义，注意key和value尽量简短。
+
+
+* 如果分享的是第三方链接，回流方式自行处理
 
 
 
@@ -139,7 +166,10 @@ require(['pmd/share/share'], function (Share) {
     require(['pmd/share/share'], function (Share) {
         var share = new Share({
             title: 'PS Material Design - Share',
-            custom: []
+            custom: [],
+            onShareClick: function(type) {
+                console.log(type);
+            }
         });
 
         $('.wa-share-popup').on('click', function () {

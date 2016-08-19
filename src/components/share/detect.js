@@ -42,13 +42,13 @@ define(function () {
     }
 
     /*
-     * return {zbios:''} || 
-     *        {bmbadr:'4.1.0.332'} || 
-     *        {qq:'6.7.2'} || 
-     *        {wechat:''} || 
-     *        {uc:'10.9.17.807'} || 
-     *        {sogou:'4.5.0'} || 
-     *        {chrome:'51.0.2704.104'} || 
+     * return {zbios:''} ||
+     *        {bmbadr:'4.1.0.332'} ||
+     *        {qq:'6.7.2'} ||
+     *        {wechat:''} ||
+     *        {uc:'10.9.17.807'} ||
+     *        {sogou:'4.5.0'} ||
+     *        {chrome:'51.0.2704.104'} ||
      *        {other:''}
      */
     function getBrowser () {
@@ -66,7 +66,8 @@ define(function () {
             browser = 'bmbadr';
             version = UA.match(/baidubrowser\/([\d\.]*)/);
             version = version && version[1] ? version[1] : '';
-        } else if (UA.indexOf('mqqbrowser/') != -1) {
+        } else if (UA.indexOf('mqqbrowser/') != -1 && UA.indexOf('micromessenger/') === -1) {
+            // 安卓下，微信的ua里面，也会含有mqqbrowser
             // ios e.g. = mozilla/5.0 (iphone 5sglobal; cpu iphone os 9_3_2 like mac os x) applewebkit/601.1.46 (khtml, like gecko) version/6.0 mqqbrowser/6.7.2 mobile/13f69 safari/8536.25 mttcustomua/2
             browser = 'qq';
             version = UA.match(/mqqbrowser\/([\d\.]*)/);

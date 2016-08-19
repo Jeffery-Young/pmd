@@ -3,17 +3,21 @@
     <div class="wa-share-page">
         <p>在该dom下插入分享组件，你也可以通过点击该文本再开启一个分享浮层</p>
     </div>
-    
+
     <script type="text/javascript">
         require(['pmd/share/share'], function (Share) {
             var share = new Share({
-                url: location.href,
+                // url: location.href,
+                url: 'http://m.baidu.com/l=1/tc?order=1&fm=alop&asres=1&dict=-1&sec=14381&di=c4ece6472edb5468&bdenc=1&nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IGtiNNC1JQGn5nk_qva02&ct=42&cst=0',
                 title: 'PS Material Design',
                 content: 'PS Material Design UI',
                 iconUrl: 'http://m.baidu.com/static/searchbox/po/act/avengers/wxshare.jpg',
                 custom: [],
                 loginfo: {
                     clk_from : 16024
+                },
+                onShareClick: function(type) {
+                    console.log(type);
                 }
             });
 
@@ -39,7 +43,7 @@
         <p>Popup Share</p>
         <p>点击"Popup Share"弹出一个分享组件</p>
     </div>
-    
+
     <script type="text/javascript">
         require(['pmd/share/share'], function (Share) {
             var share = new Share({

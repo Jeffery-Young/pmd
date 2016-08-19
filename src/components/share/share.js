@@ -33,14 +33,14 @@ define(function () {
     if (isQQ) {
         // zepto $.ajax在qq浏览器上无法加载这个api url,永远返回fail,jquery以及直接请求均可以,原因不明,采用原生方法实现异步加载
         // TODO: 查清原因！！！！！！！！！
-        var script = document.createElement('script'); 
-        script.type = 'text/javascript'; 
-        script.onload = script.onreadystatechange = function() { 
-            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete" ) { 
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.onload = script.onreadystatechange = function() {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete" ) {
                 dtd.resolve();
             }
-        }; 
-        script.src = '//jsapi.qq.com/get?api=app.share'; 
+        };
+        script.src = '//jsapi.qq.com/get?api=app.share';
         $('head').append(script);
     }
 
@@ -64,7 +64,7 @@ define(function () {
                 });
             }
         });
-        
+
     };
 
     // UC分享接口
@@ -93,7 +93,7 @@ define(function () {
         //         k && k.parentNode && k.parentNode.removeChild(k)
         //     }, 5E3);
         // }
-        
+
         if (typeof(ucweb) != 'undefined') {
             // 判断ucweb方法是否存在,安卓uc中可以使用
             ucweb.startRequest('shell.page_share', [title, title, url, to_app, '', '@' + from, '']);
@@ -152,10 +152,71 @@ define(function () {
         }, 2000);
     };
 
+    /* 生成短链接 */
+    var getShotLink = function(url) {
+        var det = $.Deferred();
+        var requrl = 'http://mysearch.pae.baidu.com/api/s';
+
+        if (window.location.protocol === 'https:') {
+            requrl = 'https://sp0.baidu.com/5LMDcjW6BwF3otqbppnN2DJv/mysearch.pae.baidu.com/api/s';
+        }
+
+        $.ajax({
+            url: requrl,
+            type: 'GET',
+            timeout: 1000,
+            dataType: 'jsonp',
+            jsonp: 'cb',
+            data: {
+                params: JSON.stringify([url])
+            }
+        })
+        .done(function(data) {
+            if (data && data.status == '0' && data[url]) {
+                det.resolve(data[url]);
+            } else {
+                det.resolve(url);
+            }
+        })
+        .fail(function() {
+            det.resolve(url);
+        });
+
+        return det.promise();
+    };
+    /* 微信分享复制链接提醒 */
+    var copyLinkPopup;
+    var copyLinkTip = function(url) {
+        $.when(getShotLink(url)).then(function(shoturl) {
+            var html = [
+                '<div class="c-share-copytip-content">',
+                '<div class="c-share-copytip-text">长按复制下方链接，去粘贴给好友吧：</div>',
+                '<div class="c-share-copytip-linkwr"><a class="c-share-copytip-link" href="' + shoturl +'" target="_blank">' + shoturl + '</a></div>',
+                '</div>',
+                '<div class="c-share-copytip-cancel-btn">取消</div>'
+            ].join('');
+
+            require(['../popup/popup'], function (Popup) {
+                copyLinkPopup = new Popup({
+                    content: html,
+                    customClassName: 'c-share-popup-modal'
+                });
+
+                // 点击"取消"按钮时关闭浮层
+                $('.c-share-copytip-cancel-btn').on('click', function () {
+                    copyLinkPopup.closePopup();
+                });
+                $('.c-share-copytip-link').on('click', function(event) {
+                    return false;
+                });
+            });
+        });
+    };
+
     // 朋友圈分享按钮配置
     var pyq = {
         key: 'pyq',
-        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/pyq.png',
+        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/pyq_2.png',
         title: '朋友圈',
         cb: (function () {
             var fn;
@@ -179,6 +240,10 @@ define(function () {
                 fn = function (opt) {
                     wechatTips();
                 };
+            } else {
+                fn = function(opt) {
+                    copyLinkTip(opt.url);
+                };
             }
             return fn;
         })()
@@ -187,7 +252,7 @@ define(function () {
     // 微信好友分享按钮配置
     var wxfriend = {
         key: 'wxfriend',
-        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/wxfriend.png',
+        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/wxfriend_2.png',
         title: '微信好友',
         cb: (function () {
             var fn;
@@ -211,6 +276,10 @@ define(function () {
                 fn = function (opt) {
                     wechatTips();
                 };
+            } else {
+                fn = function(opt) {
+                    copyLinkTip(opt.url);
+                };
             }
             return fn;
         })()
@@ -219,7 +288,7 @@ define(function () {
     // qq好友分享按钮配置
     var qqfriend = {
         key: 'qqfriend',
-        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/qqfriend.png',
+        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/qqfriend_2.png',
         title: 'QQ好友',
         cb: (function () {
             var fn;
@@ -239,6 +308,10 @@ define(function () {
                 fn = function (opt) {
                     qqShare('qqfriend', opt);
                 };
+            } else {
+                fn = function(opt) {
+                    copyLinkTip(opt.url);
+                };
             }
             return fn;
         })()
@@ -247,7 +320,7 @@ define(function () {
     // qq空间分享按钮配置
     var qzone = {
         key: 'qzone',
-        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/qzone.png',
+        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/qzone_2.png',
         title: 'QQ空间',
         cb: (function () {
             var fn;
@@ -281,7 +354,7 @@ define(function () {
     // 新郎微博分享按钮配置
     var sinaweibo = {
         key: 'sinaweibo',
-        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/sinaweibo.png',
+        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/sinaweibo_2.png',
         title: '新浪微博',
         cb: (function () {
             var fn;
@@ -313,7 +386,7 @@ define(function () {
 
     var more = {
         key: 'more',
-        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/more.png',
+        icon: '//m.baidu.com/se/static/pmd/pmd/share/images/more_2.png',
         title: '更多',
         cb: (function () {
             var fn;
@@ -349,6 +422,7 @@ define(function () {
         }
         this.opt.linkUrl = this.opt.url;
 
+        this.onShareClick = opt.onShareClick || function() {};
         // init
         this._init();
     };
@@ -371,12 +445,17 @@ define(function () {
 
             // 处理分享图标list,并拼装dom
             var list = [];
+            /*
             if (isZbios || isUC || isQQ || isWechat) {
                 list.push(pyq, wxfriend);
             }
             if (isZbios || isUC || isQQ) {
                 list.push(qqfriend);
             }
+            */
+            list.push(wxfriend, pyq);
+            list.push(qqfriend);
+
             list.push(qzone, sinaweibo);
             if (isZbios || isUC || (isQQ && OS.n == 'ios')) {
                 list.push(more);
@@ -418,13 +497,17 @@ define(function () {
         // 绑定分享按钮点击事件
         _bindEvent: function () {
             var me = this;
-            
+
             // key = ['pyq', 'wxfriend', 'qqfriend', 'qzone', 'sinaweibo', 'more'];
             me.$dom_shareList.find('.c-share-btn').each(function (i) {
                 if (me.list[i]) {
                     $(this).on('click', function () {
                         me.list[i].cb(me.opt);
                         me._sendLog(me.list[i].key);
+                        // 点击回调
+                        if (me.onShareClick && typeof me.onShareClick == 'function') {
+                            me.onShareClick(me.list[i].key);
+                        }
                     });
                 }
             });
