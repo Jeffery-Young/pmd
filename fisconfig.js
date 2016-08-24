@@ -7,8 +7,8 @@ fis.set('project.fileType.text', 'md');
 
 
 fis.match('/css/grid.less', {
-    // parser: fis.plugin('less'),
-    // rExt: '.css'
+    parser: fis.plugin('less'),
+    rExt: '.css'
 });
 
 fis.match('/components/(**).js', {

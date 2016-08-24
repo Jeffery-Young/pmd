@@ -9,7 +9,8 @@
 
 * npm install -g [fis3](http://fis.baidu.com/fis3/index.html)   // fis3需要全局安装
 * npm install fis3-hook-amd
-* npm install fis3-parser-stylus
+* npm install fis-parser-less
+* npm install fis3-parser-stylus    // 目前仍然使用less预处理，计划迁移stylus
 
 
 ## 开发规范
